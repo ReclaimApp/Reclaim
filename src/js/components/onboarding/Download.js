@@ -9,7 +9,7 @@ const Download = (props) => {
             <h1 onClick={() => props.history.push('/')} className="logo" >fbexplorer</h1>
             <div className="landing-container">
                     <h3>You will be taken to the download page where you should see what looks like the below image</h3>
-                    {/* <img src={} className="download-image" alt="download example" /> */}
+                    <img src={"./build/media/fb-download.jpg"} className="download-image" alt="download example" />
                 <ListGroup>
                     <ListGroup.Item> - Choose "All of my data" and make sure the format is HTML with media quality set to high</ListGroup.Item>
                     <ListGroup.Item> - It will take a few minutes to "create" your file before you can download</ListGroup.Item>
