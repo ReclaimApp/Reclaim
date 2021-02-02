@@ -11,6 +11,7 @@ const CategoryRouter = () => {
     return(
         categoryData.map((category) => {
             const path = "/" + category.path + "/" + category.name
+            console.log(path)
             return(
                 <HashRouter>
                     <Route key={uuidv4()} path={path} render={(props) => <DataDisplay {...props} data={category.data} />} />
