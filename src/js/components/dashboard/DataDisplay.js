@@ -5,6 +5,7 @@ import {useSelector} from "react-redux"
 const DataDisplay = (props) => {
   const images = useSelector(state => state.images)
   const video = useSelector(state => state.video)
+  console.log(props.data)
 
   const options = {
       replace: (domNode) => {

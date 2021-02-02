@@ -54,7 +54,7 @@ const Drop = (props) => {
                     }
                     else if (file.name.includes('.html')) {
                         const path = file.path.split("/")
-                        dispatch({type: POPULATE_CATEGORIES, payload: {path: path[2], name: file.name, data: event.target.result}})
+                        dispatch({type: POPULATE_CATEGORIES, payload: {path: path[path.length -2], name: file.name, data: event.target.result}})
                     }
                     else {
                         if (file.type && file.type.includes("image")) {
