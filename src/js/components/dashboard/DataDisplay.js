@@ -5,7 +5,6 @@ import {useSelector} from "react-redux"
 const DataDisplay = (props) => {
   const images = useSelector(state => state.images)
   const video = useSelector(state => state.video)
-  console.log(props.data)
 
   const options = {
       replace: (domNode) => {
@@ -14,7 +13,8 @@ const DataDisplay = (props) => {
         }
         if (domNode.attribs.href && domNode.attribs.href.includes('messages') && props.location.pathname.includes("/messages")) {
           const messageItem = domNode.attribs.href.split('/')
-          const messageRoute = messageItem[2]
+          const messageRoute = messageItem[messageItem.length - 2] + "/" + messageItem[messageItem.length - 1]
+          console.log(messageRoute)
           
           return (
             <p 

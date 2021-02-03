@@ -34,6 +34,7 @@ const Drop = (props) => {
         onDrop: (acceptedFiles) => {
             acceptedFiles.map((file) => {
                 ringTimer()
+                console.log(file)
                 const reader = new FileReader()
                 reader.onload = function(event) {
                     if (file.webkitRelativePath.includes("messages") && file.name.includes(".html")) {
@@ -96,7 +97,6 @@ const Drop = (props) => {
                 <h2 className="step-drop">Step 3: Drag and drop your data below to start exploring</h2>
 
                 <div className='file-drop'>
-                <FaHandPointDown className='icon-hand-point-down' />
                     <div className='file-box' {...getRootProps()}>
                     <div className="ring-container">
                             {
