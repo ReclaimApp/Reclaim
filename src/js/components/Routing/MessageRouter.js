@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const MessageRouter = () => {
     const messageData = useSelector(state => state.messages)
-    console.log("In messageRouter")
 
     return(
         messageData.map((message) => {

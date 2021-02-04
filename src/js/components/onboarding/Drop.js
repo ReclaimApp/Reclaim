@@ -34,12 +34,11 @@ const Drop = (props) => {
         onDrop: (acceptedFiles) => {
             acceptedFiles.map((file) => {
                 ringTimer()
-                console.log(file)
                 const reader = new FileReader()
                 reader.onload = function(event) {
-                    if (file.webkitRelativePath.includes("messages") && file.name.includes(".html")) {
+                    if (file.path.includes("message" && "inbox") && file.name.includes(".html")) {
                         let fileSplit = file.path.split('/')
-                        let name = fileSplit[4]
+                        let name = fileSplit[fileSplit.length - 2] + "/" + fileSplit[fileSplit.length - 1]
                         dispatch({type: POPULATE_MESSAGES, payload: {name: name, data: event.target.result}})
                     }
                     
