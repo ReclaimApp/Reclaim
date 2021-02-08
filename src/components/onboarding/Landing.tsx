@@ -3,7 +3,7 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaHandPointRight } from 'react-icons/fa';
 import onBoardingStyles from './onboarding.module.css';
-import categoryScroll from '../../media/category-scroll.mp4';
+// import categoryScroll from '../../media/category-scroll.mp4';
 
 const Landing = ({ history }) => {
   const renderTooltip = (props) => (
@@ -31,7 +31,7 @@ const Landing = ({ history }) => {
           fbexplorer lets you reclaim, search, and explore all of your Facebook
           data
         </h3>
-        <video
+        {/* <video
           type="video/mp4"
           src={categoryScroll}
           poster={}
@@ -39,7 +39,7 @@ const Landing = ({ history }) => {
           muted
           playsInline
           autoPlay
-        />
+        /> */}
         <h2 className={onBoardingStyles.step}>Step 1: Log into Facebook</h2>
         <div
           id="fb-login"
