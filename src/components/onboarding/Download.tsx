@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import fbDownload from '../../media/fb-download.jpg';
 
 const Download = (props) => {
   return (
@@ -14,7 +15,7 @@ const Download = (props) => {
           like the below image
         </h3>
         <img
-          src="./build/media/fb-download.jpg"
+          src={fbDownload}
           className="download-image"
           alt="download example"
         />
