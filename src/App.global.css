@@ -1,0 +1,14 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  font-size: inherit;
+  box-sizing: inherit;
+}
