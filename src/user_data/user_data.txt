@@ -1,0 +1,1 @@
+All of the users data folders will be stored in this user_data directory
