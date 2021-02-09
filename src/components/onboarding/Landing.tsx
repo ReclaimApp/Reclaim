@@ -10,10 +10,31 @@ const StyledFbButton = Styled.button`
   margin: 3% auto;
   padding: 1%;
   font-size: 1.3rem;
+  font-weight: 600;
   background: royalBlue;
   color: #fff;
   border: 1px solid oldlace;
   border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const StyledTwitterButton = Styled.button`
+  margin: 3% auto;
+  padding: 1%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  width: 25%;
+  background-color: rgb(29, 161, 242);
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const StyledButton = Styled.button`
@@ -25,6 +46,10 @@ const StyledButton = Styled.button`
   color: #fff;
   border: 1px solid oldlace;
   border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const Landing = () => {
@@ -39,7 +64,18 @@ const Landing = () => {
           </p>
         </Container>
       </Jumbotron>
-      <Button as={StyledFbButton}>Log into Facebook</Button>
+      <Container>
+        <Row className={StyleSheet.row}>
+          <Button as={StyledFbButton}>Login to Facebook</Button>
+          <Button as={StyledTwitterButton}>Login to Twitter</Button>
+        </Row>
+      </Container>
+      <Container>
+        <Row className={StyleSheet.row}>
+          <Button as={StyledButton}>Download Facebook data</Button>
+          <Button as={StyledButton}>Download Twitter data</Button>
+        </Row>
+      </Container>
       <Container>
         <Row className={StyleSheet.row}>
           <Button as={StyledButton}>Explore Facebook</Button>
