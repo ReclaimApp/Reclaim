@@ -6,9 +6,11 @@ import CategoryRouter from './components/Routing/CategoryRouter';
 import MessageRouter from './components/Routing/MessageRouter';
 import './App.global.css';
 import Categories from './components/dashboard/Categories';
+import UserDataRetrieval from './utils/UserDataRetrieval';
 
 const App = () => {
   const userData = useSelector((state) => state.userData);
+  UserDataRetrieval();
 
   return (
     <div className="App">
