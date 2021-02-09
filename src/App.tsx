@@ -1,8 +1,6 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Download from './components/onboarding/Download';
-import Drop from './components/onboarding/Drop';
 import Landing from './components/onboarding/Landing';
 import CategoryRouter from './components/Routing/CategoryRouter';
 import MessageRouter from './components/Routing/MessageRouter';
@@ -17,12 +15,6 @@ const App = () => {
       <HashRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route
-            exact
-            path="/download"
-            render={(props) => <Download {...props} />}
-          />
-          <Route exact path="/drop" render={(props) => <Drop {...props} />} />
           <Route
             exact
             path="/categories"

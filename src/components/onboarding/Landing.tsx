@@ -1,74 +1,34 @@
 import React from 'react';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Button, Container, Jumbotron } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaHandPointRight } from 'react-icons/fa';
-import onBoardingStyles from './onboarding.module.css';
-import categoryScroll from '../../media/category-scroll.mp4';
+import Styled from 'styled-components';
+import StyleSheet from './onboarding.module.css';
+// import categoryScroll from '../../media/category-scroll.mp4';
 
-const Landing = ({ history }) => {
-  const renderTooltip = (props) => (
-    <Tooltip className="skip-tooltip" {...props}>
-      Already have your data?
-    </Tooltip>
-  );
+const StyledButton = Styled.button`
+  width: 25%;
+  margin: 3% auto;
+  padding: 1%;
+  font-size: 1.3rem;
+  background: royalBlue;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+`;
 
+const Landing = () => {
   return (
-    <div className={onBoardingStyles.landing}>
-      <div className={onBoardingStyles.header}>
-        <h1 onClick={() => history.push('/')} className={onBoardingStyles.logo}>
-          fbexplorer
-        </h1>
-        <p
-          onClick={() => history.push('/about')}
-          className={onBoardingStyles.about}
-        >
-          About
-        </p>
-      </div>
-
-      <div className={onBoardingStyles.landingContainer}>
-        <h3>
-          fbexplorer lets you reclaim, search, and explore all of your Facebook
-          data
-        </h3>
-        <video
-          type="video/mp4"
-          src={categoryScroll}
-          poster={}
-          className="description-video"
-          muted
-          playsInline
-          autoPlay
-        />
-        <h2 className={onBoardingStyles.step}>Step 1: Log into Facebook</h2>
-        <div
-          id="fb-login"
-          className={onBoardingStyles.fbLoginButton}
-          data-scope="public_profile"
-          data-width=""
-          data-size="large"
-          data-button-type="login_with"
-          data-auto-logout-link="true"
-          data-use-continue-as="true"
-        />
-        <div className={onBoardingStyles.buttonContainer}>
-          <div className={onBoardingStyles.skipContainer}>
-            <FaHandPointRight className={onBoardingStyles.iconHandPoint} />
-            <OverlayTrigger
-              placement="right"
-              delay={{ show: 100, hide: 200 }}
-              overlay={renderTooltip}
-            >
-              <Link to="/drop" className={onBoardingStyles.skipButton}>
-                Skip
-              </Link>
-            </OverlayTrigger>
-          </div>
-          <Link to="/download" className={onBoardingStyles.next}>
-            Download your data
-          </Link>
-        </div>
-      </div>
+    <div className={StyleSheet.landing}>
+      <Jumbotron fluid>
+        <Container>
+          <h1 className={StyleSheet.header}>SelfExplore</h1>
+          <p className={StyleSheet.headerText}>
+            SelfExplore is a tool that helps you collect, store, and explore all
+            of your social media data
+          </p>
+        </Container>
+      </Jumbotron>
+      <Button as={StyledButton}>Log into Facebook</Button>
     </div>
   );
 };
