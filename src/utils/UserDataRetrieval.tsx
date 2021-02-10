@@ -1,15 +1,23 @@
 import React from 'react';
-import { readdirSync } from 'fs';
+import { readdirSync, opendir } from 'fs';
+import PopulateFacebookData from './PopulateFacebookData';
 
 const UserDataRetrieval = () => {
-  readdirSync('src/user_data', { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => {
-      if (dirent.name.includes('facebook')) {
-        console.log(dirent);
+  opendir('src/user_data', (dir) => {
+    console.log(dir);
+    dir.read((err, dirent) => {
+      try {
+        if (dirent.name && dirent.name.includes('facebook')) {
+          // Invoke the function that will import fb_data and dispatch it to state
+          // and be sure to pass in dirent.name so we can import the correct folder
+          PopulateFacebookData(dirent.name);
+        }
+      } catch {
+        console.log(`error `, err);
       }
-      return dirent;
+      dir.close();
     });
+  });
 };
 
 export default UserDataRetrieval;
