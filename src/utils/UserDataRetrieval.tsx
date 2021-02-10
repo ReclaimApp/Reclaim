@@ -2,11 +2,10 @@ import React from 'react';
 import { readdirSync } from 'fs';
 
 const UserDataRetrieval = () => {
-  readdirSync(__dirname, { withFileTypes: true })
+  readdirSync('src/user_data', { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => {
-      console.log(dirent.name);
-      if (dirent.name === 'user_data') {
+      if (dirent.name.includes('facebook')) {
         console.log(dirent);
       }
       return dirent;

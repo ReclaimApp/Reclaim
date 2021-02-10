@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Landing from './components/onboarding/Landing';
+import Landing from './components/Landing';
 import CategoryRouter from './components/Routing/CategoryRouter';
 import MessageRouter from './components/Routing/MessageRouter';
 import './App.global.css';
