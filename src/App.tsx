@@ -11,7 +11,6 @@ import UserDataRetrieval from './utils/UserDataRetrieval';
 const App = () => {
   const userData = useSelector((state) => state.userData);
   UserDataRetrieval();
-
   return (
     <div className="App">
       <HashRouter>
