@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Container, Jumbotron, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { USER_DATA } from '../store/Actions';
 import StyleSheet from './onboarding.module.css';
 // import categoryScroll from '../../media/category-scroll.mp4';
 
@@ -53,6 +55,10 @@ const StyledButton = Styled.button`
 `;
 
 const Landing = () => {
+  const dispatch = useDispatch();
+  const logData = () => {
+    dispatch({ type: USER_DATA });
+  };
   return (
     <div className={StyleSheet.landing}>
       <Jumbotron fluid>
@@ -78,7 +84,9 @@ const Landing = () => {
       </Container>
       <Container>
         <Row className={StyleSheet.row}>
-          <Button as={StyledButton}>Explore Facebook</Button>
+          <Button onClick={logData} as={StyledButton}>
+            Explore Facebook
+          </Button>
           <Button as={StyledButton}>Explore Twitter</Button>
         </Row>
       </Container>
