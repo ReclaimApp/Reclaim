@@ -8,10 +8,8 @@ const CategoryRouter = () => {
   const categoryData = useSelector((state) => state.categories);
 
   return categoryData.map((category) => {
-    let path;
-    if (category.path.includes('album')) {
-      path = `/photos_and_videos/${category.name}`;
-    } else path = `/${category.path}/${category.name}`;
+    const path = `/${category.path}/${category.name}`;
+    console.log(path);
 
     return (
       <HashRouter key={uuidv4()}>

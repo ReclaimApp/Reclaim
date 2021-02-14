@@ -3,6 +3,7 @@ import fs from 'fs';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   GET_INDEX_HTML,
+  GET_FOLDER_NAME,
   POPULATE_CATEGORIES,
   USER_DATA,
   POPULATE_IMAGES,
@@ -56,7 +57,9 @@ const UserDataRetrieval = () => {
     dir.read((err, dirent) => {
       // Here there will be a condition for each social media data folder (for right now it's only FB)
       if (dirent.name.includes('facebook')) {
-        // If the data folder is present then add the index.html to Redux state through the getIndex function
+        // First we will dispatch our directory name to Redux state
+        dispatch({ type: GET_FOLDER_NAME, payload: dirent.name });
+        // Now we can add the index.html to Redux state through the getFbIndex function
         getFbIndex(dirent.name);
         // Get the names of all of the data folders
         const arrayOfFolders = fs.readdirSync(`src/user_data/${dirent.name}`);

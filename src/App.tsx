@@ -15,7 +15,7 @@ const App = () => {
     <div className="App">
       <HashRouter>
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" render={(props) => <Landing {...props} />} />
           <Route
             exact
             path="/categories"

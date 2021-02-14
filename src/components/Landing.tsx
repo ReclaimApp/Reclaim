@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Container, Jumbotron, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Container, Jumbotron, Row } from 'react-bootstrap';
 import Styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { USER_DATA } from '../store/Actions';
@@ -54,10 +53,11 @@ const StyledButton = Styled.button`
   }
 `;
 
-const Landing = () => {
+const Landing = (props) => {
   const dispatch = useDispatch();
   const logData = () => {
     dispatch({ type: USER_DATA });
+    props.history.push('/categories');
   };
   return (
     <div className={StyleSheet.landing}>
@@ -85,7 +85,7 @@ const Landing = () => {
       <Container>
         <Row className={StyleSheet.row}>
           <Button onClick={logData} as={StyledButton}>
-            <Link to="/categories">Explore Facebook</Link>
+            Explore Facebook
           </Button>
           <Button as={StyledButton}>Explore Twitter</Button>
         </Row>
