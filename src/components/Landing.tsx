@@ -85,7 +85,7 @@ const Landing = () => {
       <Container>
         <Row className={StyleSheet.row}>
           <Button onClick={logData} as={StyledButton}>
-            Explore Facebook
+            <Link to="/categories">Explore Facebook</Link>
           </Button>
           <Button as={StyledButton}>Explore Twitter</Button>
         </Row>

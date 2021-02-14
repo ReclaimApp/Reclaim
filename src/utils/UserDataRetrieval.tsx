@@ -14,12 +14,13 @@ import {
 const UserDataRetrieval = () => {
   const dispatch = useDispatch();
 
-  const getIndex = (name) => {
+  const getFbIndex = (name) => {
     const index = fs.readFileSync(`src/user_data/${name}/index.html`, 'utf8');
     dispatch({ type: GET_INDEX_HTML, payload: index });
   };
 
-  const getCategories = (folders, name) => {
+  // This function parses the fb directory to find and dispatch all of the .html files with their parent folder names (the categories)
+  const getFbCategories = (folders, name) => {
     folders.map((folder) => {
       // Need to read all of the directories for the files within and ignore the index.html since we already have that in state
       if (folder !== 'index.html') {
@@ -56,12 +57,12 @@ const UserDataRetrieval = () => {
       // Here there will be a condition for each social media data folder (for right now it's only FB)
       if (dirent.name.includes('facebook')) {
         // If the data folder is present then add the index.html to Redux state through the getIndex function
-        getIndex(dirent.name);
-
+        getFbIndex(dirent.name);
         // Get the names of all of the data folders
         const arrayOfFolders = fs.readdirSync(`src/user_data/${dirent.name}`);
         // Pass the names to getCategories to be parsed and dispatched to state
-        getCategories(arrayOfFolders, dirent.name);
+        getFbCategories(arrayOfFolders, dirent.name);
+        // Get the photos/videos
       }
       dir.close();
     });
