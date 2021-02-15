@@ -1,14 +1,11 @@
 import React from 'react';
 import fs from 'fs';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   GET_INDEX_HTML,
   GET_FOLDER_NAME,
   POPULATE_CATEGORIES,
-  USER_DATA,
-  POPULATE_IMAGES,
-  POPULATE_VIDEO,
-  POPULATE_MESSAGES,
+  USER_FB_DATA,
 } from '../store/Actions';
 
 // This component will check if the correct data directories are in user_data
@@ -57,8 +54,9 @@ const UserDataRetrieval = () => {
     dir.read((err, dirent) => {
       // Here there will be a condition for each social media data folder (for right now it's only FB)
       if (dirent.name.includes('facebook')) {
-        // First we will dispatch our directory name to Redux state
+        // First we will dispatch our directory name to Redux state along with a bool that signifies that the data is in the app
         dispatch({ type: GET_FOLDER_NAME, payload: dirent.name });
+        dispatch({ type: USER_FB_DATA });
         // Now we can add the index.html to Redux state through the getFbIndex function
         getFbIndex(dirent.name);
         // Get the names of all of the data folders

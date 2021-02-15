@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Container, Jumbotron, Row } from 'react-bootstrap';
 import Styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { USER_DATA } from '../store/Actions';
 import StyleSheet from './onboarding.module.css';
 // import categoryScroll from '../../media/category-scroll.mp4';
 
@@ -53,12 +52,19 @@ const StyledButton = Styled.button`
   }
 `;
 
-const Landing = (props) => {
-  const dispatch = useDispatch();
-  const logData = () => {
-    dispatch({ type: USER_DATA });
-    props.history.push('/categories');
-  };
+const StyledButtonDisabled = Styled.button`
+  width: 25%;
+  margin: 3% auto;
+  padding: 1%;
+  font-size: 1.3rem;
+  background-color: #4b3f72;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+  opacity: 0.6;
+`;
+
+const Landing = (props, { userFbData }) => {
   return (
     <div className={StyleSheet.landing}>
       <Jumbotron fluid>
@@ -84,9 +90,18 @@ const Landing = (props) => {
       </Container>
       <Container>
         <Row className={StyleSheet.row}>
-          <Button onClick={logData} as={StyledButton}>
-            Explore Facebook
-          </Button>
+          {userFbData === true ? (
+            <Button
+              as={StyledButton}
+              onClick={() => props.history.push('/categories')}
+            >
+              Explore Facebook
+            </Button>
+          ) : (
+            <Button disabled as={StyledButtonDisabled}>
+              Explore Facebook
+            </Button>
+          )}
           <Button as={StyledButton}>Explore Twitter</Button>
         </Row>
       </Container>

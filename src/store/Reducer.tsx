@@ -2,14 +2,14 @@ import {
   GET_INDEX_HTML,
   GET_FOLDER_NAME,
   POPULATE_CATEGORIES,
-  USER_DATA,
+  USER_FB_DATA,
 } from './Actions';
 
 const initialState = {
   index: {},
   categories: [],
   folderName: '',
-  userData: false,
+  userFbData: false,
 };
 
 const Reducer = function (state = initialState, action) {
@@ -23,9 +23,9 @@ const Reducer = function (state = initialState, action) {
     case POPULATE_CATEGORIES: {
       return { ...state, categories: [...state.categories, action.payload] };
     }
-    case USER_DATA: {
+    case USER_FB_DATA: {
       console.log(state);
-      return { ...state, userData: true };
+      return { ...state, userFbData: true };
     }
     default:
       return state;

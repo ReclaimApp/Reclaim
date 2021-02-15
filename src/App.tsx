@@ -8,13 +8,17 @@ import UserDataRetrieval from './utils/UserDataRetrieval';
 import './App.global.css';
 
 const App = () => {
-  const userData = useSelector((state) => state.userData);
+  const userFbData = useSelector((state) => state.userFbData);
   UserDataRetrieval();
   return (
     <div className="App">
       <HashRouter>
         <Switch>
-          <Route exact path="/" render={(props) => <Landing {...props} />} />
+          <Route
+            exact
+            path="/"
+            render={(props) => <Landing userFbData={userFbData} {...props} />}
+          />
           <Route
             exact
             path="/categories"
@@ -22,7 +26,7 @@ const App = () => {
           />
         </Switch>
       </HashRouter>
-      {userData ? (
+      {userFbData ? (
         <>
           <CategoryRouter />
         </>
