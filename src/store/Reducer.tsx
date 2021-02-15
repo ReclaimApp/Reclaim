@@ -1,19 +1,15 @@
 import {
   GET_INDEX_HTML,
+  GET_FOLDER_NAME,
   POPULATE_CATEGORIES,
-  USER_DATA,
-  POPULATE_IMAGES,
-  POPULATE_VIDEO,
-  POPULATE_MESSAGES,
+  USER_FB_DATA,
 } from './Actions';
 
 const initialState = {
   index: {},
   categories: [],
-  images: [],
-  video: [],
-  messages: [],
-  userData: false,
+  folderName: '',
+  userFbData: false,
 };
 
 const Reducer = function (state = initialState, action) {
@@ -21,21 +17,15 @@ const Reducer = function (state = initialState, action) {
     case GET_INDEX_HTML: {
       return { ...state, index: action.payload };
     }
+    case GET_FOLDER_NAME: {
+      return { ...state, folderName: action.payload };
+    }
     case POPULATE_CATEGORIES: {
       return { ...state, categories: [...state.categories, action.payload] };
     }
-    case POPULATE_IMAGES: {
-      return { ...state, images: [...state.images, action.payload] };
-    }
-    case POPULATE_VIDEO: {
-      return { ...state, video: [...state.video, action.payload] };
-    }
-    case POPULATE_MESSAGES: {
-      return { ...state, messages: [...state.messages, action.payload] };
-    }
-    case USER_DATA: {
+    case USER_FB_DATA: {
       console.log(state);
-      return { ...state, userData: true };
+      return { ...state, userFbData: true };
     }
     default:
       return state;

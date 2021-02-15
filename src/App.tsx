@@ -1,28 +1,24 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Download from './components/onboarding/Download';
-import Drop from './components/onboarding/Drop';
-import Landing from './components/onboarding/Landing';
+import Landing from './components/Landing';
 import CategoryRouter from './components/Routing/CategoryRouter';
-import MessageRouter from './components/Routing/MessageRouter';
+import Categories from './components/Rendering/CategoriesDisplay';
+import UserDataRetrieval from './utils/UserDataRetrieval';
 import './App.global.css';
-import Categories from './components/dashboard/Categories';
 
 const App = () => {
-  const userData = useSelector((state) => state.userData);
-
+  const userFbData = useSelector((state) => state.userFbData);
+  UserDataRetrieval();
   return (
     <div className="App">
       <HashRouter>
         <Switch>
-          <Route exact path="/" component={Landing} />
           <Route
             exact
-            path="/download"
-            render={(props) => <Download {...props} />}
+            path="/"
+            render={(props) => <Landing userFbData={userFbData} {...props} />}
           />
-          <Route exact path="/drop" render={(props) => <Drop {...props} />} />
           <Route
             exact
             path="/categories"
@@ -30,10 +26,9 @@ const App = () => {
           />
         </Switch>
       </HashRouter>
-      {userData ? (
+      {userFbData ? (
         <>
           <CategoryRouter />
-          <MessageRouter />
         </>
       ) : null}
     </div>
