@@ -3,10 +3,9 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Landing from './components/Landing';
 import CategoryRouter from './components/Routing/CategoryRouter';
-import MessageRouter from './components/Routing/MessageRouter';
-import './App.global.css';
-import Categories from './components/dashboard/Categories';
+import Categories from './components/Rendering/CategoriesDisplay';
 import UserDataRetrieval from './utils/UserDataRetrieval';
+import './App.global.css';
 
 const App = () => {
   const userData = useSelector((state) => state.userData);
@@ -26,7 +25,6 @@ const App = () => {
       {userData ? (
         <>
           <CategoryRouter />
-          <MessageRouter />
         </>
       ) : null}
     </div>

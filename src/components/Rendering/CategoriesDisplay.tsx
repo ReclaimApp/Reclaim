@@ -2,7 +2,7 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { useSelector } from 'react-redux';
 
-const Categories = (props) => {
+const CategoriesDisplay = (props) => {
   const data = useSelector((state) => state.index);
 
   const options = {
@@ -31,4 +31,4 @@ const Categories = (props) => {
   return parse(data, options);
 };
 
-export default Categories;
+export default CategoriesDisplay;

@@ -3,15 +3,11 @@ import {
   GET_FOLDER_NAME,
   POPULATE_CATEGORIES,
   USER_DATA,
-  POPULATE_MESSAGES,
 } from './Actions';
 
 const initialState = {
   index: {},
   categories: [],
-  images: [],
-  video: [],
-  messages: [],
   folderName: '',
   userData: false,
 };
@@ -26,9 +22,6 @@ const Reducer = function (state = initialState, action) {
     }
     case POPULATE_CATEGORIES: {
       return { ...state, categories: [...state.categories, action.payload] };
-    }
-    case POPULATE_MESSAGES: {
-      return { ...state, messages: [...state.messages, action.payload] };
     }
     case USER_DATA: {
       console.log(state);
