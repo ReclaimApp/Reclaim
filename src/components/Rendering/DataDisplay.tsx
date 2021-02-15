@@ -14,6 +14,7 @@ const DataDisplay = (props) => {
         domNode.attribs.src = `src/user_data/${folderName}/${domNode.attribs.src}`;
       } else if (domNode.name === 'a') {
         domNode.attribs.href = `src/user_data/${folderName}/${domNode.attribs.href}`;
+        return domNode;
       }
     },
   };

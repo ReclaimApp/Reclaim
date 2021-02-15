@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Container, Jumbotron, Row } from 'react-bootstrap';
 import Styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import StyleSheet from './onboarding.module.css';
 // import categoryScroll from '../../media/category-scroll.mp4';
 
@@ -64,7 +64,9 @@ const StyledButtonDisabled = Styled.button`
   opacity: 0.6;
 `;
 
-const Landing = (props, { userFbData }) => {
+const Landing = (props) => {
+  const userFbData = useSelector((state) => state.userFbData);
+
   return (
     <div className={StyleSheet.landing}>
       <Jumbotron fluid>
@@ -90,7 +92,7 @@ const Landing = (props, { userFbData }) => {
       </Container>
       <Container>
         <Row className={StyleSheet.row}>
-          {userFbData === true ? (
+          {userFbData ? (
             <Button
               as={StyledButton}
               onClick={() => props.history.push('/categories')}
