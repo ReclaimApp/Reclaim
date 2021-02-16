@@ -1,11 +1,12 @@
 import React from 'react';
 import fs from 'fs';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  GET_INDEX_HTML,
-  GET_FOLDER_NAME,
+  GET_FB_INDEX_HTML,
+  GET_FB_FOLDER_NAME,
   POPULATE_CATEGORIES,
   USER_FB_DATA,
+  GET_TWTR_FOLDER_NAME,
 } from '../store/Actions';
 
 // This component will check if the correct data directories are in user_data
@@ -14,7 +15,7 @@ const UserDataRetrieval = () => {
 
   const getFbIndex = (name) => {
     const index = fs.readFileSync(`src/user_data/${name}/index.html`, 'utf8');
-    dispatch({ type: GET_INDEX_HTML, payload: index });
+    dispatch({ type: GET_FB_INDEX_HTML, payload: index });
   };
 
   // This function parses the fb directory to find and dispatch all of the .html files with their parent folder names (the categories)
@@ -50,24 +51,31 @@ const UserDataRetrieval = () => {
   };
 
   // Open and read the user_data dir
-  fs.opendir('src/user_data', (error, dir) => {
-    dir.read((err, dirent) => {
+  fs.readdirSync('src/user_data', { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => {
       // Here there will be a condition for each social media data folder (for right now it's only FB)
       if (dirent.name.includes('facebook')) {
-        // First we will dispatch our directory name to Redux state along with a bool that signifies that the data is in the app
-        dispatch({ type: GET_FOLDER_NAME, payload: dirent.name });
-        dispatch({ type: USER_FB_DATA });
+        // First we will dispatch our directory name to Redux state
+        dispatch({ type: GET_FB_FOLDER_NAME, payload: dirent.name });
         // Now we can add the index.html to Redux state through the getFbIndex function
         getFbIndex(dirent.name);
         // Get the names of all of the data folders
         const arrayOfFolders = fs.readdirSync(`src/user_data/${dirent.name}`);
         // Pass the names to getCategories to be parsed and dispatched to state
         getFbCategories(arrayOfFolders, dirent.name);
-        // Get the photos/videos
+        // Finally we will dispatch a bool that signifies that the data is in the app
+        dispatch({ type: USER_FB_DATA });
+        return null;
       }
-      dir.close();
+      if (dirent.name.includes('twitter')) {
+        console.log('here');
+        // First we will dispatch our directory name to Redux state along with a bool that signifies that the data is in the app
+        dispatch({ type: GET_TWTR_FOLDER_NAME, payload: dirent.name });
+        return null;
+      }
+      return null;
     });
-  });
   return null;
 };
 

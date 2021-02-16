@@ -9,6 +9,7 @@ import './App.global.css';
 
 const App = () => {
   const userFbData = useSelector((state) => state.userFbData);
+  // Run the component that locates and populates all of the user data
   UserDataRetrieval();
   return (
     <div className="App">

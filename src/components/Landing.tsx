@@ -65,7 +65,7 @@ const StyledButtonDisabled = Styled.button`
 `;
 
 const Landing = (props) => {
-  const userFbData = useSelector((state) => state.userFbData);
+  const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
 
   return (
     <div className={StyleSheet.landing}>

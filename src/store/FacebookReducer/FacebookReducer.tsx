@@ -1,9 +1,9 @@
 import {
-  GET_INDEX_HTML,
-  GET_FOLDER_NAME,
+  GET_FB_INDEX_HTML,
+  GET_FB_FOLDER_NAME,
   POPULATE_CATEGORIES,
   USER_FB_DATA,
-} from './Actions';
+} from '../Actions';
 
 const initialState = {
   index: {},
@@ -12,12 +12,12 @@ const initialState = {
   userFbData: false,
 };
 
-const Reducer = function (state = initialState, action) {
+const FacebookReducer = function (state = initialState, action) {
   switch (action.type) {
-    case GET_INDEX_HTML: {
+    case GET_FB_INDEX_HTML: {
       return { ...state, index: action.payload };
     }
-    case GET_FOLDER_NAME: {
+    case GET_FB_FOLDER_NAME: {
       return { ...state, folderName: action.payload };
     }
     case POPULATE_CATEGORIES: {
@@ -32,4 +32,4 @@ const Reducer = function (state = initialState, action) {
   }
 };
 
-export default Reducer;
+export default FacebookReducer;

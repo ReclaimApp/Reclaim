@@ -1,4 +1,7 @@
-export const GET_INDEX_HTML = 'GET_INDEX_HTML';
+export const GET_FB_INDEX_HTML = 'GET_FB_INDEX_HTML';
 export const POPULATE_CATEGORIES = 'POPULATE_CATEGORIES';
 export const USER_FB_DATA = 'USER_FB_DATA';
-export const GET_FOLDER_NAME = 'GET_FOLDER_NAME';
+export const GET_FB_FOLDER_NAME = 'GET_FB_FOLDER_NAME';
+
+// Twitter reducer
+export const GET_TWTR_FOLDER_NAME = 'GET_TWTR_FOLDER_NAME';
