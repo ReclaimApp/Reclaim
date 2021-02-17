@@ -1,12 +1,14 @@
 import React from 'react';
 import fs from 'fs';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   GET_FB_INDEX_HTML,
   GET_FB_FOLDER_NAME,
   POPULATE_CATEGORIES,
   USER_FB_DATA,
   GET_TWTR_FOLDER_NAME,
+  GET_TWTR_INDEX_HTML,
+  USER_TWTR_DATA,
 } from '../store/Actions';
 
 // This component will check if the correct data directories are in user_data
@@ -16,6 +18,14 @@ const UserDataRetrieval = () => {
   const getFbIndex = (name) => {
     const index = fs.readFileSync(`src/user_data/${name}/index.html`, 'utf8');
     dispatch({ type: GET_FB_INDEX_HTML, payload: index });
+  };
+
+  const getTwitterIndex = (name) => {
+    const index = fs.readFileSync(
+      `src/user_data/${name}/Your archive.html`,
+      'utf8'
+    );
+    dispatch({ type: GET_TWTR_INDEX_HTML, payload: index });
   };
 
   // This function parses the fb directory to find and dispatch all of the .html files with their parent folder names (the categories)
@@ -70,8 +80,12 @@ const UserDataRetrieval = () => {
       }
       if (dirent.name.includes('twitter')) {
         console.log('here');
-        // First we will dispatch our directory name to Redux state along with a bool that signifies that the data is in the app
+        // First we will dispatch our directory name to Redux state
         dispatch({ type: GET_TWTR_FOLDER_NAME, payload: dirent.name });
+        // Now we can add the 'Your archive.html' to Redux state through the getTwtIndex function
+        getTwitterIndex(dirent.name);
+        // Finally we will dispatch a bool that signifies that the data is in the app and console.log the data
+        dispatch({ type: USER_TWTR_DATA });
         return null;
       }
       return null;

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { FacebookReducer } from './FacebookReducer/FacebookReducer';
-import { TwitterReducer } from './TwitterReducer/TwitterReducer';
+import FacebookReducer from './FacebookReducer/FacebookReducer';
+import TwitterReducer from './TwitterReducer/TwitterReducer';
 
 const rootReducer = combineReducers({
   FacebookReducer,

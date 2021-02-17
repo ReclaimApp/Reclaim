@@ -3,7 +3,7 @@ import parse from 'html-react-parser';
 import { useSelector } from 'react-redux';
 
 const CategoriesDisplay = (props) => {
-  const data = useSelector((state) => state.index);
+  const data = useSelector((state) => state.FacebookReducer.index);
 
   const options = {
     replace: (domNode) => {

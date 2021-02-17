@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 import DataDisplay from '../Rendering/DataDisplay';
 
-const CategoryRouter = () => {
-  const categoryData = useSelector((state) => state.categories);
+const FbCategoryRouter = () => {
+  const categoryData = useSelector((state) => state.FacebookReducer.categories);
 
   return categoryData.map((category) => {
     const path = `/${category.path}/${category.name}`;
@@ -22,4 +22,4 @@ const CategoryRouter = () => {
   });
 };
 
-export default CategoryRouter;
+export default FbCategoryRouter;

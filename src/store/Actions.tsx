@@ -5,3 +5,5 @@ export const GET_FB_FOLDER_NAME = 'GET_FB_FOLDER_NAME';
 
 // Twitter reducer
 export const GET_TWTR_FOLDER_NAME = 'GET_TWTR_FOLDER_NAME';
+export const GET_TWTR_INDEX_HTML = 'GET_TWTR_INDEX_HTML';
+export const USER_TWTR_DATA = 'USER_TWTR_DATA';

@@ -104,7 +104,12 @@ const Landing = (props) => {
               Explore Facebook
             </Button>
           )}
-          <Button as={StyledButton}>Explore Twitter</Button>
+          <Button
+            onClick={() => props.history.push('/twitter')}
+            as={StyledButton}
+          >
+            Explore Twitter
+          </Button>
         </Row>
       </Container>
     </div>
