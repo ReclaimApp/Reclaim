@@ -36,6 +36,7 @@
       "dist/",
       "node_modules/",
       "index.html",
+      "placeholder.html",
       "main.prod.js",
       "main.prod.js.map",
       "package.json"
@@ -252,6 +253,7 @@
     "electron-log": "^4.2.4",
     "electron-updater": "^4.3.4",
     "history": "^5.0.0",
+    "html-loader": "^2.0.0",
     "html-react-parser": "^1.2.4",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
