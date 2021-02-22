@@ -65,7 +65,10 @@ const StyledButtonDisabled = Styled.button`
 `;
 
 const Landing = (props) => {
-  const userFbData = useSelector((state) => state.userFbData);
+  const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
+  const userTwtrData = useSelector(
+    (state) => state.TwitterReducer.userTwtrData
+  );
 
   return (
     <div className={StyleSheet.landing}>
@@ -104,7 +107,18 @@ const Landing = (props) => {
               Explore Facebook
             </Button>
           )}
-          <Button as={StyledButton}>Explore Twitter</Button>
+          {userTwtrData ? (
+            <Button
+              as={StyledButton}
+              onClick={() => props.history.push('/twitter')}
+            >
+              Explore Twitter
+            </Button>
+          ) : (
+            <Button disabled as={StyledButtonDisabled}>
+              Explore Twitter
+            </Button>
+          )}
         </Row>
       </Container>
     </div>

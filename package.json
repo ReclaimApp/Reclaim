@@ -36,6 +36,7 @@
       "dist/",
       "node_modules/",
       "index.html",
+      "placeholder.html",
       "main.prod.js",
       "main.prod.js.map",
       "package.json"
@@ -183,6 +184,7 @@
     "@types/node": "14.14.10",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.9",
+    "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.6",
     "@types/react-test-renderer": "^16.9.3",
     "@types/webpack-env": "^1.15.2",
@@ -252,6 +254,7 @@
     "electron-log": "^4.2.4",
     "electron-updater": "^4.3.4",
     "history": "^5.0.0",
+    "html-loader": "^2.0.0",
     "html-react-parser": "^1.2.4",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
@@ -265,6 +268,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.5",
+    "sanitize-html": "^2.3.2",
     "source-map-support": "^0.5.19",
     "styled-components": "^5.2.1"
   },
