@@ -80,11 +80,9 @@ const UserDataRetrieval = () => {
       }
       if (dirent.name.includes('twitter')) {
         console.log('here');
-        // First we will dispatch our directory name to Redux state
+        // For Twitter we only need to dispatch the folder name and the data bool
         dispatch({ type: GET_TWTR_FOLDER_NAME, payload: dirent.name });
-        // Now we can add the 'Your archive.html' to Redux state through the getTwtIndex function
-        getTwitterIndex(dirent.name);
-        // Finally we will dispatch a bool that signifies that the data is in the app and console.log the data
+        // Now we dispatch a bool that signifies that the data is in the app
         dispatch({ type: USER_TWTR_DATA });
         return null;
       }
