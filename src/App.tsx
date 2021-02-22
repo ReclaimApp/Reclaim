@@ -9,7 +9,9 @@ import TwitterDataDisplay from './components/Rendering/TwitterDataDisplay';
 import './App.global.css';
 
 const App = () => {
+  // This is a bool from redux state signifiying that the FB data is in the correct directory and format
   const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
+  // This is a bool from redux state signifiying that the Twitter data is in the correct directory and format
   const userTwtrData = useSelector(
     (state) => state.TwitterReducer.userTwtrData
   );
@@ -25,6 +27,7 @@ const App = () => {
             path="/categories"
             render={(props) => <Categories {...props} />}
           />
+          {/* If the Twitter data is in the correct directory this route will render */}
           {userTwtrData ? (
             <>
               <Route
