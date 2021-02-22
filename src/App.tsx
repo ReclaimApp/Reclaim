@@ -5,7 +5,7 @@ import Landing from './components/Landing';
 import FbCategoryRouter from './components/Routing/FbCategoryRouter';
 import Categories from './components/Rendering/CategoriesDisplay';
 import UserDataRetrieval from './utils/UserDataRetrieval';
-import TwitterRouter from './components/Routing/TwitterRouter';
+import TwitterDataDisplay from './components/Rendering/TwitterDataDisplay';
 import './App.global.css';
 
 const App = () => {
@@ -25,16 +25,19 @@ const App = () => {
             path="/categories"
             render={(props) => <Categories {...props} />}
           />
+          {userTwtrData ? (
+            <>
+              <Route
+                path="/twitter"
+                render={(props) => <TwitterDataDisplay {...props} />}
+              />
+            </>
+          ) : null}
         </Switch>
       </HashRouter>
       {userFbData ? (
         <>
           <FbCategoryRouter />
-        </>
-      ) : null}
-      {userTwtrData ? (
-        <>
-          <TwitterRouter />
         </>
       ) : null}
     </div>
