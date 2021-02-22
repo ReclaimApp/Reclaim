@@ -7,7 +7,6 @@ import {
   POPULATE_CATEGORIES,
   USER_FB_DATA,
   GET_TWTR_FOLDER_NAME,
-  GET_TWTR_INDEX_HTML,
   USER_TWTR_DATA,
 } from '../store/Actions';
 
@@ -15,17 +14,10 @@ import {
 const UserDataRetrieval = () => {
   const dispatch = useDispatch();
 
+  // This function gets called with the Facebook directory name as an argument and it dispatches the FB index.html to global state
   const getFbIndex = (name) => {
     const index = fs.readFileSync(`src/user_data/${name}/index.html`, 'utf8');
     dispatch({ type: GET_FB_INDEX_HTML, payload: index });
-  };
-
-  const getTwitterIndex = (name) => {
-    const index = fs.readFileSync(
-      `src/user_data/${name}/Your archive.html`,
-      'utf8'
-    );
-    dispatch({ type: GET_TWTR_INDEX_HTML, payload: index });
   };
 
   // This function parses the fb directory to find and dispatch all of the .html files with their parent folder names (the categories)
@@ -78,6 +70,7 @@ const UserDataRetrieval = () => {
         dispatch({ type: USER_FB_DATA });
         return null;
       }
+      // Conditional for Twitter
       if (dirent.name.includes('twitter')) {
         console.log('here');
         // For Twitter we only need to dispatch the folder name and the data bool
