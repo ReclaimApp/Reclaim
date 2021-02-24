@@ -197,6 +197,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "browserslist-config-erb": "^0.0.1",
     "chalk": "^4.1.0",
+    "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^5.3.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
@@ -250,12 +251,14 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "electron-debug": "^3.1.0",
     "electron-log": "^4.2.4",
     "electron-updater": "^4.3.4",
     "history": "^5.0.0",
     "html-loader": "^2.0.0",
     "html-react-parser": "^1.2.4",
+    "playwright-electron": "^0.5.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
