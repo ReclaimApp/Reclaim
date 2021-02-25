@@ -1,5 +1,13 @@
 import React from 'react';
-import { Button, Container, Jumbotron, Row, Col } from 'react-bootstrap';
+import {
+  Button,
+  Container,
+  Jumbotron,
+  Row,
+  Col,
+  OverlayTrigger,
+  Tooltip,
+} from 'react-bootstrap';
 import Styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import StyleSheet from './onboarding.module.css';
@@ -99,8 +107,31 @@ const Landing = (props) => {
           )}
         </Col>
         <Col className={StyleSheet.column}>
-          <Button as={StyledTwitterButton}>Login to Twitter</Button>
-          <Button as={StyledButton}>Download Twitter data</Button>
+          <Button
+            onClick={() => window.open('https://twitter.com/login')}
+            as={StyledTwitterButton}
+          >
+            Login to Twitter
+          </Button>
+          <OverlayTrigger
+            placement="bottom"
+            overlay={
+              <Tooltip id="twitter">
+                Download and unzip your data folder into the
+                <strong> user_data </strong>
+                directory in your SelfExplore folder.
+              </Tooltip>
+            }
+          >
+            <Button
+              onClick={() =>
+                window.open('https://twitter.com/settings/download_your_data')
+              }
+              as={StyledButton}
+            >
+              Download Twitter data
+            </Button>
+          </OverlayTrigger>
           {userTwtrData ? (
             <Button
               as={StyledButton}
