@@ -59,6 +59,22 @@ const StyledButton = Styled.button`
   }
 `;
 
+const StyledAutoButton = Styled.button`
+  width: 35%;
+  padding: 1%;
+  margin: 1% auto;
+  margin-bottom: 3%;
+  font-size: 1.3rem;
+  background-color: #4b3f72;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const StyledButtonDisabled = Styled.button`
   width: 75%;
   margin: 3% auto;
@@ -88,9 +104,12 @@ const Landing = (props) => {
           </p>
         </Container>
       </Jumbotron>
-
+      <Button as={StyledAutoButton}>Automatically reclaim Facebook data</Button>
       <Container className={StyleSheet.parentContainer}>
         <Col className={StyleSheet.column}>
+          <h2 className={StyleSheet.columnHeader}>
+            Manually reclaim Facebook data
+          </h2>
           <Button as={StyledFbButton}>Login to Facebook</Button>
           <Button as={StyledButton}>Download Facebook data</Button>
           {userFbData ? (
@@ -107,6 +126,9 @@ const Landing = (props) => {
           )}
         </Col>
         <Col className={StyleSheet.column}>
+          <h2 className={StyleSheet.columnHeader}>
+            Manually reclaim Twitter data
+          </h2>
           <Button
             onClick={() => window.open('https://twitter.com/login')}
             as={StyledTwitterButton}
