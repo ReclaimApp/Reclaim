@@ -99,7 +99,7 @@ const Landing = (props) => {
         <Container>
           <h1 className={StyleSheet.header}>SelfExplore</h1>
           <p className={StyleSheet.headerText}>
-            SelfExplore is a tool that helps you collect, store, and explore all
+            SelfExplore is a tool that helps you reclaim, store, and explore all
             of your social media data
           </p>
         </Container>
