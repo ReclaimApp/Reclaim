@@ -6,11 +6,13 @@
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom right, #d7d6d6, #6e54c4);
+  font-family: 'Inconsolata';
 }
 
 .header {
   font-size: 3rem;
   text-align: center;
+  font-family: 'Audiowide';
 }
 
 .headerText {
@@ -25,12 +27,19 @@
   flex-direction: column;
   justify-content: space-between;
   margin-top: 2%;
-  border: 1px solid oldlace;
+  border: 1px solid black;
   border-radius: 5px;
+  background: linear-gradient(to bottom right, oldlace, #6e54c4);
+}
+
+.columnHeader {
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .parentContainer {
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
