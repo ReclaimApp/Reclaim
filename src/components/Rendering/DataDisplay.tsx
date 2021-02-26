@@ -1,9 +1,9 @@
 import React from 'react';
-import parse, { domToReact } from 'html-react-parser';
+import parse from 'html-react-parser';
 import { useSelector } from 'react-redux';
 
 const DataDisplay = (props) => {
-  const folderName = useSelector((state) => state.folderName);
+  const folderName = useSelector((state) => state.FacebookReducer.folderName);
 
   const options = {
     replace: (domNode) => {
