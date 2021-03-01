@@ -11,16 +11,16 @@ async function setUpBrower(storageState = process.env.STORAGE) {
       '--mute-audio',
     ],
     defaultViewport: null,
-    // devtools: true,
-    // slowMo: 100,
+    devtools: true,
+    slowMo: 100,
     downloadsPath: 'D:\\Lambda\\projects\\puppeteer_test\\data',
   });
 
   // Create a new incognito browser context with user credentials
+  console.log(storageState);
   const context = await browser.newContext({
     acceptDownloads: true,
     viewport: null,
-    storageState: JSON.parse(storageState),
   });
   return [browser, context];
 }
