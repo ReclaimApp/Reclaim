@@ -120,6 +120,10 @@ export default merge(baseConfig, {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
         use: 'url-loader',
       },
+      {
+        test: /\.exe$/i,
+        use: 'raw-loader',
+      },
     ],
   },
 
