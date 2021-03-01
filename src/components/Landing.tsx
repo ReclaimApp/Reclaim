@@ -10,6 +10,7 @@ import {
 } from 'react-bootstrap';
 import Styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import index from '../playWright/index';
 import StyleSheet from './onboarding.module.css';
 
 const StyledFbButton = Styled.button`
@@ -104,7 +105,9 @@ const Landing = (props) => {
           </p>
         </Container>
       </Jumbotron>
-      <Button as={StyledAutoButton}>Automatically reclaim Facebook data</Button>
+      <Button as={StyledAutoButton} onClick={index}>
+        Automatically reclaim Facebook data
+      </Button>
       <Container className={StyleSheet.parentContainer}>
         <Col className={StyleSheet.column}>
           <h2 className={StyleSheet.columnHeader}>

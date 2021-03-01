@@ -30,6 +30,4 @@ async function index() {
   await browser.close();
 }
 
-index();
-
 export default index
