@@ -7,7 +7,7 @@ import deleteZipFile from "./deleteZipFile";
 
 const facebookDataDir = dataDir("facebook")
 
-async function downloadFile(page, browser, browserNotCloseCorrectly) {
+async function downloadFile(page, browser) {
   /* select child frame */
   // have to do this because after waiting for file to be ready by realoding the page the
   // old doc is detach from the page
