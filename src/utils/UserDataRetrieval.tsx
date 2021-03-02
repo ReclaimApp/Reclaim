@@ -1,6 +1,7 @@
 import React from 'react';
 import fs from 'fs';
 import { useDispatch } from 'react-redux';
+import dataDir from '../automation/facebook/scripts/dataDir';
 import {
   GET_FB_INDEX_HTML,
   GET_FB_FOLDER_NAME,
@@ -51,6 +52,15 @@ const UserDataRetrieval = () => {
       return null;
     });
   };
+
+  // Facebook retrieval
+  const fbData = fs.readdirSync(dataDir('facebook'));
+  fbData.map((directory) => {
+    if (directory.includes('.html')) {
+      console.log(directory);
+    }
+    return null;
+  });
 
   // Open and read the user_data dir
   fs.readdirSync('src/user_data', { withFileTypes: true })

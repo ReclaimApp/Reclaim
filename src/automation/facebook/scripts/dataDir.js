@@ -3,7 +3,6 @@ import process from "process"
 import path from "path"
 
 function dataDir(socialMedia = 'facebook'){
-  console.log(path.join(process.cwd(), `/src/user_data/${socialMedia}`));
   return path.join(process.cwd(), `/src/user_data/${socialMedia}`)
 }
 
