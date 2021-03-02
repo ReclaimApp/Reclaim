@@ -43,6 +43,8 @@ dll
 main.js
 main.js.map
 .env
+src/user_data/facebook
+src/user_data
 
 .idea
 npm-debug.log.*
