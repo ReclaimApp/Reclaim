@@ -3,6 +3,7 @@ import reattachFrame from './reattachFrame';
 import startReportDownloadStatus from './startReportDownloadStatus';
 import dataDir from "./dataDir"
 import extract from "extract-zip"
+import deleteZipFile from "./deleteZipFile";
 
 const facebookDataDir = dataDir("facebook")
 
@@ -118,7 +119,7 @@ async function downloadFile(page, browser, browserNotCloseCorrectly) {
   try {
     console.log("Going to delete zip file")
     console.log(await facebookFile)
-    await facebookFile.delete()
+    deleteZipFile();
 
   } catch (error) {
     console.log("Could not delete zip file")
