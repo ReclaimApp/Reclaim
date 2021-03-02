@@ -38,7 +38,7 @@ async function index() {
     console.log(error)
 
     /* Close Automation */
-    await browser.close();
+    // await browser.close();
 
   }
 
