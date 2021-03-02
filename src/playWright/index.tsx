@@ -14,20 +14,32 @@ async function index() {
   // const [browser, context] = await setUpBrower(JSON.stringify(credentials))
   const [browser, context] = await setUpBrower();
 
-  /* select correct frame */
-  const [page, dataDoc] = await goToDownloadYourInformation(context);
+  try {
+    /* select correct frame */
+    const [page, dataDoc] = await goToDownloadYourInformation(context);
 
-  /* ask for files */
-  await askForFile(dataDoc);
+    /* ask for files */
+    await askForFile(dataDoc);
 
-  /* Wait for files */
-  await waitForFile(page, dataDoc);
+    /* Wait for files */
+    await waitForFile(page, dataDoc);
 
-  /* Download files */
-  await downloadFile(page);
+    /* Download files */
+    await downloadFile(page);
 
-  /* Close Automation */
-  await browser.close();
+    /* Close Automation */
+    await browser.close();
+
+  } catch (error) {
+    /* handle the handless script breaking */
+    console.log("the headless script broke")
+    console.log(error)
+
+    /* Close Automation */
+    await browser.close();
+
+  }
+
 }
 
 export default index
