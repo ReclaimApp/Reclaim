@@ -80,8 +80,9 @@ const Landing = (props) => {
   );
 
   const startScript = () => {
-    setScriptRunning(true);
+    // setScriptRunning(true);
     index();
+    // setScriptRunning(false);
   };
 
   return (
