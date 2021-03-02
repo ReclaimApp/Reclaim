@@ -18,14 +18,16 @@ async function index() {
     /* select correct frame */
     const [page, dataDoc] = await goToDownloadYourInformation(context);
 
-    /* ask for files */
-    await askForFile(dataDoc);
+    // /* ask for files */
+    // await askForFile(dataDoc);
 
-    /* Wait for files */
-    await waitForFile(page, dataDoc);
+    // /* Wait for files */
+    // await waitForFile(page, dataDoc);
 
     /* Download files */
-    await downloadFile(page);
+    await downloadFile(page, browser);
+
+    /* unzip file and delete zip file */
 
     /* Close Automation */
     await browser.close();
