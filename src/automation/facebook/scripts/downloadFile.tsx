@@ -4,6 +4,8 @@ import startReportDownloadStatus from './startReportDownloadStatus';
 import dataDir from "./dataDir"
 import extract from "extract-zip"
 
+const facebookDataDir = dataDir("facebook")
+
 async function downloadFile(page, browser, browserNotCloseCorrectly) {
   /* select child frame */
   // have to do this because after waiting for file to be ready by realoding the page the
@@ -80,7 +82,7 @@ async function downloadFile(page, browser, browserNotCloseCorrectly) {
   }
 
   const fileName = await download.suggestedFilename();
-  const fileNamePath = `${dataDir("facebook")}/${fileName}`
+  const fileNamePath = `${facebookDataDir}/${fileName}`
   const facebookFile = await download.saveAs(fileNamePath);
 
   try {
@@ -104,7 +106,7 @@ async function downloadFile(page, browser, browserNotCloseCorrectly) {
 
   // unzip the folder
   try {
-    await extract(fileNamePath, { dir: dataDir })
+    await extract(fileNamePath, { dir: facebookDataDir })
     console.log('Extraction complete')
   } catch (err) {
     // could not unzip
