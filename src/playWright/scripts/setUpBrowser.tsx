@@ -17,10 +17,10 @@ async function setUpBrower(storageState = process.env.STORAGE) {
   });
 
   // Create a new incognito browser context with user credentials
+  console.log(storageState);
   const context = await browser.newContext({
     acceptDownloads: true,
     viewport: null,
-    storageState: JSON.parse(storageState),
   });
   return [browser, context];
 }

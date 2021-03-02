@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   Container,
@@ -60,22 +60,6 @@ const StyledButton = Styled.button`
   }
 `;
 
-const StyledAutoButton = Styled.button`
-  width: 35%;
-  padding: 1%;
-  margin: 1% auto;
-  margin-bottom: 3%;
-  font-size: 1.3rem;
-  background-color: #4b3f72;
-  color: #fff;
-  border: 1px solid oldlace;
-  border-radius: 6px;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
 const StyledButtonDisabled = Styled.button`
   width: 75%;
   margin: 3% auto;
@@ -89,10 +73,16 @@ const StyledButtonDisabled = Styled.button`
 `;
 
 const Landing = (props) => {
+  const [scriptRunning, setScriptRunning] = useState(false);
   const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
   const userTwtrData = useSelector(
     (state) => state.TwitterReducer.userTwtrData
   );
+
+  const startScript = () => {
+    setScriptRunning(true);
+    index();
+  };
 
   return (
     <div className={StyleSheet.landing}>
@@ -105,7 +95,13 @@ const Landing = (props) => {
           </p>
         </Container>
       </Jumbotron>
-      <Button as={StyledAutoButton} onClick={index}>
+      <Button
+        className={
+          scriptRunning ? StyleSheet.autoButtonDisabled : StyleSheet.autoButton
+        }
+        disabled={scriptRunning}
+        onClick={startScript}
+      >
         Automatically reclaim Facebook data
       </Button>
       <Container className={StyleSheet.parentContainer}>

@@ -44,3 +44,33 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.autoButton {
+  width: 35%;
+  padding: 1%;
+  margin: 1% auto;
+  margin-bottom: 3%;
+  font-size: 1.3rem;
+  background-color: #4b3f72;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.autoButton:hover {
+  opacity: 0.8;
+}
+
+.autoButtonDisabled {
+  width: 35%;
+  padding: 1%;
+  margin: 1% auto;
+  margin-bottom: 3%;
+  font-size: 1.3rem;
+  background-color: #4b3f72;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+  opacity: 0.8;
+}
