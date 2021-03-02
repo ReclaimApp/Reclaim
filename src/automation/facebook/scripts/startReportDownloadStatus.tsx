@@ -7,7 +7,7 @@ function startReportDownloadStatus(download) {
   );
   // continues waiting reports
   const intervalID = setInterval(() => {
-    console.log(`Time ${Date().split(' ')[4]}: File is still downloading. `);
+    console.log(`Time ${Date().split(' ')[4]}: ${download.suggestedFilename()} file is still downloading. `);
   }, 30000);
 
   return intervalID;
