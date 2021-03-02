@@ -10,7 +10,8 @@ import {
 } from 'react-bootstrap';
 import Styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import index from '../playWright/index';
+import facebookScriptIndex from '../automation/facebook/index';
+import twitterScriptIndex from '../automation/twitter/index';
 import StyleSheet from './onboarding.module.css';
 
 const StyledFbButton = Styled.button`
@@ -81,7 +82,12 @@ const Landing = (props) => {
 
   const startScript = () => {
     // setScriptRunning(true);
-    index();
+    facebookScriptIndex();
+    // setScriptRunning(false);
+  };
+  const startTwitterScript = () => {
+    // setScriptRunning(true);
+    twitterScriptIndex();
     // setScriptRunning(false);
   };
 
@@ -104,6 +110,15 @@ const Landing = (props) => {
         onClick={startScript}
       >
         Automatically reclaim Facebook data
+      </Button>
+      <Button
+        className={
+          scriptRunning ? StyleSheet.autoButtonDisabled : StyleSheet.autoButton
+        }
+        disabled={scriptRunning}
+        onClick={startTwitterScript}
+      >
+        Automatically reclaim Twitter data
       </Button>
       <Container className={StyleSheet.parentContainer}>
         <Col className={StyleSheet.column}>
