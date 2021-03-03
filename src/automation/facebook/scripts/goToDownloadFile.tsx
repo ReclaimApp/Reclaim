@@ -1,5 +1,5 @@
 import reattachFrame from'./reattachFrame';
-import storeCredentials from './scripts/storeCredentials';
+import storeCredentials from './storeCredentials';
 
 async function goToDownloadFile(context) {
   // Create a new page in a pristine context.
