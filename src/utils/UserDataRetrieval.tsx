@@ -5,7 +5,6 @@ import path from 'path';
 import dataDir from '../automation/facebook/scripts/dataDir';
 import {
   GET_FB_INDEX_HTML,
-  GET_FB_FOLDER_NAME,
   POPULATE_CATEGORIES,
   USER_FB_DATA,
   GET_TWTR_FOLDER_NAME,
