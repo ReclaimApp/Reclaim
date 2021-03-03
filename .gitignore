@@ -44,7 +44,7 @@ main.js
 main.js.map
 .env
 src/user_data/facebook
-src/user_data
+src/user_data/credentials/facebook.js
 
 .idea
 npm-debug.log.*
