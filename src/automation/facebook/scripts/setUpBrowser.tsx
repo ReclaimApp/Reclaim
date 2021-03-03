@@ -4,7 +4,7 @@ import dataDir from "./dataDir"
 
 const facebookDataDir = dataDir("facebook")
 
-async function setUpBrower(storageState:string = process.env.STORAGE || "null") {
+async function setUpBrower(storageState) {
   /* start headless browser with credentials */
   const browser = await chromium.launch({
     args: [
