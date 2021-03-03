@@ -15,49 +15,66 @@ import {
 const UserDataRetrieval = () => {
   const dispatch = useDispatch();
 
-  // This function gets called with the Facebook directory name as an argument and it dispatches the FB index.html to global state
-  const getFbIndex = (name) => {
-    const index = fs.readFileSync(`src/user_data/${name}/index.html`, 'utf8');
-    dispatch({ type: GET_FB_INDEX_HTML, payload: index });
-  };
-
   // This function parses the fb directory to find and dispatch all of the .html files with their parent folder names (the categories)
-  const getFbCategories = (folders, name) => {
-    folders.map((folder) => {
-      // Need to read all of the directories for the files within and ignore the index.html since we already have that in state
-      if (folder !== 'index.html') {
-        const subFolderArray = fs.readdirSync(
-          `src/user_data/${name}/${folder}`
-        );
-        // Now we map through all of the files to dispatch them into Redux state
-        subFolderArray.map((file) => {
-          if (file.includes('.html')) {
-            const fileHtml = fs.readFileSync(
-              `src/user_data/${name}/${folder}/${file}`,
-              'utf8'
-            );
-            dispatch({
-              type: POPULATE_CATEGORIES,
-              payload: {
-                path: folder,
-                name: file,
-                data: fileHtml,
-              },
-            });
-          }
-          return null;
-        });
-        return null;
-      }
-      return null;
-    });
-  };
+  // const getFbCategories = (folders, name) => {
+  //   folders.map((folder) => {
+  //     // Need to read all of the directories for the files within and ignore the index.html since we already have that in state
+  //     if (folder !== 'index.html') {
+  //       const subFolderArray = fs.readdirSync(
+  //         `src/user_data/${name}/${folder}`
+  //       );
+  //       // Now we map through all of the files to dispatch them into Redux state
+  //       subFolderArray.map((file) => {
+  //         if (file.includes('.html')) {
+  //           const fileHtml = fs.readFileSync(
+  //             `src/user_data/${name}/${folder}/${file}`,
+  //             'utf8'
+  //           );
+  //           dispatch({
+  //             type: POPULATE_CATEGORIES,
+  //             payload: {
+  //               path: folder,
+  //               name: file,
+  //               data: fileHtml,
+  //             },
+  //           });
+  //         }
+  //         return null;
+  //       });
+  //       return null;
+  //     }
+  //     return null;
+  //   });
+  // };
 
   // Facebook retrieval
   const fbData = fs.readdirSync(dataDir('facebook'));
   fbData.map((directory) => {
     if (directory.includes('.html')) {
-      console.log(directory);
+      const index = fs.readFileSync(
+        `src/user_data/facebook/${directory}`,
+        'utf8'
+      );
+      dispatch({ type: GET_FB_INDEX_HTML, payload: index });
+    } else {
+      const subFolder = fs.readdirSync(`src/user_data/facebook/${directory}`);
+      subFolder.map((file) => {
+        if (file.includes('.html')) {
+          const fileHtml = fs.readFileSync(
+            `src/user_data/facebook/${directory}/${file}`,
+            'utf8'
+          );
+          dispatch({
+            type: POPULATE_CATEGORIES,
+            payload: {
+              path: directory,
+              name: file,
+              data: fileHtml,
+            },
+          });
+        }
+        return null;
+      });
     }
     return null;
   });
@@ -71,11 +88,11 @@ const UserDataRetrieval = () => {
         // First we will dispatch our directory name to Redux state
         dispatch({ type: GET_FB_FOLDER_NAME, payload: dirent.name });
         // Now we can add the index.html to Redux state through the getFbIndex function
-        getFbIndex(dirent.name);
+        // getFbIndex(dirent.name);
         // Get the names of all of the data folders
-        const arrayOfFolders = fs.readdirSync(`src/user_data/${dirent.name}`);
+        // const arrayOfFolders = fs.readdirSync(`src/user_data/${dirent.name}`);
         // Pass the names to getCategories to be parsed and dispatched to state
-        getFbCategories(arrayOfFolders, dirent.name);
+        // getFbCategories(arrayOfFolders, dirent.name);
         // Finally we will dispatch a bool that signifies that the data is in the app
         dispatch({ type: USER_FB_DATA });
         return null;
