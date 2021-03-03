@@ -1,22 +1,30 @@
-import goToDownloadYourInformation from './scripts/goToDownloadYourInformation'
 import storeCredentials from './scripts/storeCredentials';
+import goToDownloadFile from './scripts/goToDownloadFile'
 import askForFile from'./scripts/askForFiles';
 import waitForFile from'./scripts/waitForFile';
 import downloadFile from './scripts/downloadFile';
 import setUpBrower from './scripts/setUpBrowser';
-// const credentials = require('../credentials');
+import credentials from "../../user_data/credentials/facebook"
 
-async function index() {
+async function index(isSaveNewCredentials = false) {
+  /* check if there is credentials */
+  console.log(credentials)
+  const isNoCredentialsExist = credentials ?  false : true
+  const isCredentialsExist = !isNoCredentialsExist
+  console.log(isNoCredentialsExist)
+
   /* save credentials enter by user */
-  await storeCredentials();
+  if(isNoCredentialsExist){
+    await storeCredentials(isSaveNewCredentials);
+  }
 
   /* start browser */
-  // const [browser, context] = await setUpBrower(JSON.stringify(credentials))
-  const [browser, context] = await setUpBrower();
+  const storage = isCredentialsExist ? JSON.stringify(credentials) : process.env.STORAGE
+  const [browser, context] = await setUpBrower(storage);
 
   try {
     /* select correct frame */
-    const [page, dataDoc] = await goToDownloadYourInformation(context);
+    const [page, dataDoc] = await goToDownloadFile(context);
 
     // /* ask for files */
     // await askForFile(dataDoc);
