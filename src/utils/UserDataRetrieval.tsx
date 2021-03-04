@@ -13,23 +13,25 @@ import {
 const UserDataRetrieval = () => {
   const dispatch = useDispatch();
   const documentsPath = window.process.argv.slice(-1)[0];
-  console.log(documentsPath);
 
   // Facebook retrieval
-  const fbData = fs.readdirSync('src/user_data/facebook');
+  const fbData = fs.readdirSync(`${documentsPath}/facebook`);
   fbData.map((directory) => {
+    console.log(directory);
     if (directory.includes('.html')) {
       const index = fs.readFileSync(
-        `src/user_data/facebook/${directory}`,
+        `${documentsPath}/facebook/${directory}`,
         'utf8'
       );
       dispatch({ type: GET_FB_INDEX_HTML, payload: index });
     } else {
-      const subFolder = fs.readdirSync(`src/user_data/facebook/${directory}`);
+      const subFolder = fs.readdirSync(`
+      ${documentsPath}/facebook/${directory}
+      `);
       subFolder.map((file) => {
         if (file.includes('.html')) {
           const fileHtml = fs.readFileSync(
-            `src/user_data/facebook/${directory}/${file}`,
+            `${documentsPath}/facebook/${directory}/${file}`,
             'utf8'
           );
           dispatch({
@@ -50,7 +52,7 @@ const UserDataRetrieval = () => {
   dispatch({ type: USER_FB_DATA });
 
   // Twitter retrieval
-  fs.readdirSync('src/user_data', { withFileTypes: true })
+  fs.readdirSync(`${documentsPath}`, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => {
       if (dirent.name.includes('twitter')) {
