@@ -10,9 +10,9 @@ const DataDisplay = (props) => {
         return;
       }
       if (domNode.attribs.src) {
-        domNode.attribs.src = `${documentsPath}/${domNode.attribs.src}`;
+        domNode.attribs.src = `${documentsPath}/facebook/${domNode.attribs.src}`;
       } else if (domNode.name === 'a') {
-        domNode.attribs.href = `${documentsPath}/${domNode.attribs.href}`;
+        domNode.attribs.href = `${documentsPath}/facebook/${domNode.attribs.href}`;
         return domNode;
       }
     },

@@ -25,9 +25,9 @@ const UserDataRetrieval = () => {
       );
       dispatch({ type: GET_FB_INDEX_HTML, payload: index });
     } else {
-      const subFolder = fs.readdirSync(`
-      ${documentsPath}/facebook/${directory}
-      `);
+      const subFolder = fs.readdirSync(
+        `${documentsPath}/facebook/${directory}`
+      );
       subFolder.map((file) => {
         if (file.includes('.html')) {
           const fileHtml = fs.readFileSync(
