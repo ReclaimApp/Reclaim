@@ -1,10 +1,11 @@
 import fs from 'fs';
 
 const deleteZipFile = () => {
-  fs.readdirSync('src/user_data/facebook', { withFileTypes: true })
+  const facebookPath = window.process.argv.slice(-1)[0] + '/your_data'
+  fs.readdirSync(facebookPath, { withFileTypes: true })
     .map((dirent) => {
       if (dirent.name.includes('.zip')) {
-        fs.unlink(`src/user_data/facebook/${dirent.name}`, (err) => {
+        fs.unlink(`${facebookPath}/${dirent.name}`, (err) => {
           if (err) {
             console.log(err)
           }

@@ -1,11 +1,11 @@
 require('dotenv').config();
 import reattachFrame from './reattachFrame';
 import startReportDownloadStatus from './startReportDownloadStatus';
-import dataDir from "./dataDir"
 import extract from "extract-zip"
 import deleteZipFile from "./deleteZipFile";
 
-const facebookDataDir = dataDir("facebook")
+const documentsPath = window.process.argv.slice(-1)[0];
+
 
 async function downloadFile(page, browser, browserNotCloseCorrectly) {
   /* select child frame */
@@ -83,7 +83,7 @@ async function downloadFile(page, browser, browserNotCloseCorrectly) {
   }
 
   const fileName = await download.suggestedFilename();
-  const fileNamePath = `${facebookDataDir}/${fileName}`
+  const fileNamePath = `${documentsPath}/your_data/${fileName}`
   const facebookFile = await download.saveAs(fileNamePath);
 
   try {
@@ -107,7 +107,7 @@ async function downloadFile(page, browser, browserNotCloseCorrectly) {
 
   // unzip the folder
   try {
-    await extract(fileNamePath, { dir: facebookDataDir })
+    await extract(fileNamePath, { dir: `${documentsPath}/your_data/facebook` })
     console.log('Extraction complete')
   } catch (err) {
     // could not unzip
