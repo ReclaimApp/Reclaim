@@ -4,6 +4,8 @@ import writeFile from "../../writeFile"
 import userCredentialPath from "../../../user_data/credentials/userCredentialsPath"
 
 async function login(isSaveCredentials) {
+  console.log("userCredentialPath: " + userCredentialPath)
+
   /* start browser */
   const browser = await chromium.launch({
     args: [
@@ -14,7 +16,6 @@ async function login(isSaveCredentials) {
     ],
     defaultViewport: null,
     headless: false,
-    downloadsPath: 'D:\\Lambda\\projects\\puppeteer_test\\data',
   });
 
   try {
