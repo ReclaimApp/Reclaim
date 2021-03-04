@@ -16,7 +16,7 @@ const UserDataRetrieval = () => {
   const dispatch = useDispatch();
 
   // Facebook retrieval
-  const fbData = fs.readdirSync(dataDir('facebook'));
+  const fbData = fs.readdirSync('src/user_data/facebook');
   fbData.map((directory) => {
     if (directory.includes('.html')) {
       const index = fs.readFileSync(
@@ -50,8 +50,7 @@ const UserDataRetrieval = () => {
   dispatch({ type: USER_FB_DATA });
 
   // Twitter retrieval
-  const twitterPath = path.join(process.cwd(), `/src/user_data/`);
-  fs.readdirSync(twitterPath, { withFileTypes: true })
+  fs.readdirSync('src/user_data', { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => {
       if (dirent.name.includes('twitter')) {
