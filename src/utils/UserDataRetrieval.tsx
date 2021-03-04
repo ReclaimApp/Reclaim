@@ -1,9 +1,6 @@
 import React from 'react';
 import fs from 'fs';
-import { useDispatch, useSelector } from 'react-redux';
-import path from 'path';
-import { ipcRenderer } from 'electron';
-import dataDir from '../automation/facebook/scripts/dataDir';
+import { useDispatch } from 'react-redux';
 import {
   GET_FB_INDEX_HTML,
   POPULATE_CATEGORIES,
@@ -15,9 +12,7 @@ import {
 // This component will check if the correct data directories are in user_data
 const UserDataRetrieval = () => {
   const dispatch = useDispatch();
-  console.log(ipcRenderer);
-
-  const documentsPath = useSelector((state) => state.PathReducer.documentsPath);
+  const documentsPath = window.process.argv.slice(-1)[0];
   console.log(documentsPath);
 
   // Facebook retrieval
