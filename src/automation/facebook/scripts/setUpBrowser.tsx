@@ -1,8 +1,5 @@
 require('dotenv').config();
 import { chromium } from 'playwright';
-import dataDir from "./dataDir"
-
-const facebookDataDir = dataDir("facebook")
 
 async function setUpBrower(storageState) {
   /* start headless browser with credentials */
@@ -16,9 +13,8 @@ async function setUpBrower(storageState) {
     defaultViewport: null,
     devtools: true,
     slowMo: 100,
-    downloadsPath: facebookDataDir,
+    downloadsPath: "D:\\Documents\\SelfExploreApp\\user_data\\facebook",
   });
-  console.log(facebookDataDir)
   // Create a new incognito browser context with user credentials
   const context = await browser.newContext({
     acceptDownloads: true,
