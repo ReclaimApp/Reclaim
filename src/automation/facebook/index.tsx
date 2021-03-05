@@ -25,6 +25,7 @@ import getCredentials from "../getCredentials"
   they can set their credential file to null when ever they want
 
   not having a explicit isCredentialsValid is confusing
+  have a default case in case the user is having problems.
 */
 
 async function index(
