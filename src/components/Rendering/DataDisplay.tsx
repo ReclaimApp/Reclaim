@@ -1,19 +1,18 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { useSelector } from 'react-redux';
+import path from 'path';
 
 const DataDisplay = (props) => {
-  const folderName = useSelector((state) => state.FacebookReducer.folderName);
-
+  const documentsPath = window.process.argv.slice(-1)[0];
   const options = {
     replace: (domNode) => {
       if (!domNode.attribs) {
         return;
       }
       if (domNode.attribs.src) {
-        domNode.attribs.src = `src/user_data/${folderName}/${domNode.attribs.src}`;
+        domNode.attribs.src = `${documentsPath}/your_data/facebook/${domNode.attribs.src}`;
       } else if (domNode.name === 'a') {
-        domNode.attribs.href = `src/user_data/${folderName}/${domNode.attribs.href}`;
+        domNode.attribs.href = `${documentsPath}/your_data/facebook/${domNode.attribs.href}`;
         return domNode;
       }
     },

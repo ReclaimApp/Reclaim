@@ -1,7 +1,8 @@
 require('dotenv').config();
 import { chromium } from 'playwright';
 
-async function setUpBrower(storageState, downloadPath) {
+async function setUpBrower(storageState, downloadPath = `${window.process.argv.slice(-1)[0]}/your_data/facebook`) {
+
   /* start headless browser with credentials */
   const browser = await chromium.launch({
     args: [
@@ -14,6 +15,7 @@ async function setUpBrower(storageState, downloadPath) {
     devtools: true,
     slowMo: 100,
     downloadsPath: downloadPath,
+
   });
   // Create a new incognito browser context with user credentials
   const context = await browser.newContext({

@@ -11,7 +11,6 @@ const TwitterReducer = function (state = initialState, action) {
       return { ...state, folderName: action.payload };
     }
     case USER_TWTR_DATA: {
-      console.log(state);
       return { ...state, userTwtrData: true };
     }
     default:
