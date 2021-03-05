@@ -19,7 +19,6 @@ const FacebookReducer = function (state = initialState, action) {
       return { ...state, categories: [...state.categories, action.payload] };
     }
     case USER_FB_DATA: {
-      console.log(state);
       return { ...state, userFbData: true };
     }
     default:
