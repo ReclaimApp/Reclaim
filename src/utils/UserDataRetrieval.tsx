@@ -26,9 +26,7 @@ const UserDataRetrieval = () => {
       .filter((doc) => doc === 'facebook')[0];
     if (fbDataCheck) {
       const fbData = fs.readdirSync(`${documentsPath}/your_data/facebook`);
-      console.log(fbData);
       fbData.map((directory) => {
-        console.log(directory);
         if (directory.includes('.html')) {
           const index = fs.readFileSync(
             `${documentsPath}/your_data/facebook/${directory}`,
