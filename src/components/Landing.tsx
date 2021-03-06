@@ -15,7 +15,7 @@ import twitterScriptIndex from '../automation/twitter/index';
 import StyleSheet from './onboarding.module.css';
 
 const StyledFbButton = Styled.button`
-  width: 75%;
+  width: 70%;
   margin: 3% auto;
   padding: 3%;
   font-size: 1.3rem;
@@ -35,7 +35,7 @@ const StyledTwitterButton = Styled.button`
   padding: 3%;
   font-size: 1.3rem;
   font-weight: 600;
-  width: 75%;
+  width: 70%;
   background-color: rgb(29, 161, 242);
   border: 1px solid rgb(29, 161, 242);
   border-radius: 25px;
@@ -47,7 +47,7 @@ const StyledTwitterButton = Styled.button`
 `;
 
 const StyledButton = Styled.button`
-  width: 75%;
+  width: 70%;
   margin: 3% auto;
   padding: 3%;
   font-size: 1.3rem;
@@ -62,7 +62,7 @@ const StyledButton = Styled.button`
 `;
 
 const StyledButtonDisabled = Styled.button`
-  width: 75%;
+  width: 70%;
   margin: 3% auto;
   padding: 3%;
   font-size: 1.3rem;
@@ -95,10 +95,10 @@ const Landing = (props) => {
     <div className={StyleSheet.landing}>
       <Jumbotron fluid>
         <Container>
-          <h1 className={StyleSheet.header}>SelfExplore</h1>
+          <h1 className={StyleSheet.header}>Reclaim</h1>
           <p className={StyleSheet.headerText}>
-            SelfExplore is a tool that helps you reclaim, store, and explore all
-            of your social media data
+            Reclaim is a tool that helps you collect, store, and explore all of
+            your social media data
           </p>
         </Container>
       </Jumbotron>
