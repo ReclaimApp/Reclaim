@@ -21,11 +21,11 @@
 }
 
 .columnOpen {
-  height: 50vh;
+  height: 40vh;
   width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 2%;
   border: 1px solid black;
   border-radius: 5px;
@@ -57,32 +57,64 @@
   justify-content: space-around;
 }
 
-.autoButton {
-  width: 35%;
-  padding: 1%;
-  margin: 1% auto;
-  margin-bottom: 3%;
+.autoFbButton {
+  width: 70%;
+  margin: 3% auto;
+  padding: 3%;
   font-size: 1.3rem;
-  background-color: #4b3f72;
+  font-weight: 600;
+  background: royalBlue;
   color: #fff;
   border: 1px solid oldlace;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.autoButton:hover {
+.autoFbButton:hover {
   opacity: 0.8;
 }
 
-.autoButtonDisabled {
-  width: 35%;
-  padding: 1%;
-  margin: 1% auto;
-  margin-bottom: 3%;
+.autoFbButtonDisabled {
+  width: 70%;
+  margin: 3% auto;
+  padding: 3%;
   font-size: 1.3rem;
-  background-color: #4b3f72;
+  font-weight: 600;
+  background: royalBlue;
   color: #fff;
   border: 1px solid oldlace;
   border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.autoTwitterButton {
+  width: 70%;
+  margin: 3% auto;
+  padding: 3%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: royalBlue;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.autoTwitterButton:hover {
+  opacity: 0.8;
+}
+
+.autoTwitterButtonDisabled {
+  width: 70%;
+  margin: 3% auto;
+  padding: 3%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: royalBlue;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+  cursor: pointer;
   opacity: 0.8;
 }

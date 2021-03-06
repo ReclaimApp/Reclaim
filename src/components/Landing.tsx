@@ -1,15 +1,31 @@
 import React, { useState } from 'react';
+import Styled from 'styled-components';
 import { Button, Container, Jumbotron } from 'react-bootstrap';
 import facebookScriptIndex from '../automation/facebook/index';
 import twitterScriptIndex from '../automation/twitter/index';
-import ManualFacebookReclaim from './ManualReclaim/ManualFacebookReclaim';
-import ManualTwitterReclaim from './ManualReclaim/ManualTwitterReclaim';
+import AutomaticFacebookReclaim from './ManualReclaim/AutomaticFacebookReclaim';
+import AutomaticTwitterReclaim from './ManualReclaim/AutomaticTwitterReclaim';
 import StyleSheet from './onboarding.module.css';
+
+const StyledButton = Styled.button`
+  width: 40%;
+  margin: 3% auto;
+  padding: 1%;
+  font-size: 1.3rem;
+  background-color: #4b3f72;
+  color: #fff;
+  border: 1px solid oldlace;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
 
 const Landing = (props) => {
   const [scriptRunning, setScriptRunning] = useState(false);
 
-  const startScript = () => {
+  const startFacebookScript = () => {
     // setScriptRunning(true);
     facebookScriptIndex();
     // setScriptRunning(false);
@@ -31,28 +47,12 @@ const Landing = (props) => {
           </p>
         </Container>
       </Jumbotron>
-      <Button
-        className={
-          scriptRunning ? StyleSheet.autoButtonDisabled : StyleSheet.autoButton
-        }
-        disabled={scriptRunning}
-        onClick={startScript}
-      >
-        Automatically reclaim Facebook data
-      </Button>
-      <Button
-        className={
-          scriptRunning ? StyleSheet.autoButtonDisabled : StyleSheet.autoButton
-        }
-        disabled={scriptRunning}
-        onClick={startTwitterScript}
-      >
-        Automatically reclaim Twitter data
-      </Button>
       <Container className={StyleSheet.parentContainer}>
-        <ManualFacebookReclaim history={props.history} />
-        <ManualTwitterReclaim history={props.history} />
+        <AutomaticFacebookReclaim startFacebookScript={startFacebookScript} scriptRunning={scriptRunning} history={props.history} />
+        <AutomaticTwitterReclaim startTwitterScript={startTwitterScript} scriptRunning={scriptRunning} history={props.history} />
       </Container>
+      <Button as={StyledButton}>Manual data download Facebook</Button>
+      <Button as={StyledButton}>Manual data download Twitter</Button>
     </div>
   );
 };

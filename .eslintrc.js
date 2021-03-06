@@ -10,6 +10,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/no-unescaped-entities': 'off',
     'react/destructuring-assignment': 'off',
+    'prettier/prettier': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,

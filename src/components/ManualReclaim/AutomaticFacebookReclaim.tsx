@@ -4,22 +4,6 @@ import { Button, Col } from 'react-bootstrap';
 import Styled from 'styled-components';
 import StyleSheet from '../onboarding.module.css';
 
-const StyledFbButton = Styled.button`
-  width: 70%;
-  margin: 3% auto;
-  padding: 3%;
-  font-size: 1.3rem;
-  font-weight: 600;
-  background: royalBlue;
-  color: #fff;
-  border: 1px solid oldlace;
-  border-radius: 6px;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
 const StyledButton = Styled.button`
   width: 70%;
   margin: 3% auto;
@@ -47,15 +31,20 @@ const StyledButtonDisabled = Styled.button`
   opacity: 0.6;
 `;
 
-const ManualFacebookReclaim = ({ history }) => {
+const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript }) => {
   const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
   return (
     <Col className={StyleSheet.columnOpen}>
       <h2 className={StyleSheet.columnHeader}>
-        Manually reclaim Facebook data
+        Automatically reclaim Facebook data
       </h2>
-      <Button as={StyledFbButton}>Login to Facebook</Button>
-      <Button as={StyledButton}>Download Facebook data</Button>
+      <Button
+        className={scriptRunning ? StyleSheet.autoFbButtonDisabled : StyleSheet.autoFbButton }
+        disabled={scriptRunning}
+        onClick={startFacebookScript}
+      >
+        Reclaim Facebook
+      </Button>
       {userFbData ? (
         <Button as={StyledButton} onClick={() => history.push('/categories')}>
           Explore Facebook
@@ -69,4 +58,4 @@ const ManualFacebookReclaim = ({ history }) => {
   );
 };
 
-export default ManualFacebookReclaim;
+export default AutomaticFacebookReclaim;
