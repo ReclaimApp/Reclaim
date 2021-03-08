@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Col } from 'react-bootstrap';
 import Styled from 'styled-components';
-import StyleSheet from '../onboarding.module.css';
+import StyleSheet from '../landing.module.css';
 
 const StyledButton = Styled.button`
   width: 70%;
@@ -31,33 +31,31 @@ const StyledButtonDisabled = Styled.button`
   opacity: 0.6;
 `;
 
-const AutomaticTwitterReclaim = ({ history, scriptRunning, startTwitterScript }) => {
-  const userTwtrData = useSelector(
-    (state) => state.TwitterReducer.userTwtrData
-  );
+const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript }) => {
+  const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
   return (
     <Col className={StyleSheet.columnOpen}>
       <h2 className={StyleSheet.columnHeader}>
-        Automatically reclaim Twitter data
+        Automatically reclaim Facebook data
       </h2>
       <Button
-        className={scriptRunning ? StyleSheet.autoTwitterButtonDisabled : StyleSheet.autoTwitterButton }
+        className={scriptRunning ? StyleSheet.autoFbButtonDisabled : StyleSheet.autoFbButton }
         disabled={scriptRunning}
-        onClick={startTwitterScript}
+        onClick={startFacebookScript}
       >
-        Reclaim Twitter
+        Reclaim Facebook
       </Button>
-      {userTwtrData ? (
-        <Button as={StyledButton} onClick={() => history.push('/twitter')}>
-          Explore Twitter
+      {userFbData ? (
+        <Button as={StyledButton} onClick={() => history.push('/categories')}>
+          Explore Facebook
         </Button>
       ) : (
         <Button disabled as={StyledButtonDisabled}>
-          Explore Twitter
+          Explore Facebook
         </Button>
       )}
     </Col>
   );
 };
 
-export default AutomaticTwitterReclaim;
+export default AutomaticFacebookReclaim;

@@ -6,6 +6,8 @@ import FbCategoryRouter from './components/Routing/FbCategoryRouter';
 import Categories from './components/Rendering/CategoriesDisplay';
 import UserDataRetrieval from './utils/UserDataRetrieval';
 import TwitterDataDisplay from './components/Rendering/TwitterDataDisplay';
+import ManualFacebookReclaim from "./components/ManualReclaim/ManualFacebookReclaim";
+import ManualTwitterReclaim from "./components/ManualReclaim/ManualTwitterReclaim";
 import './App.global.css';
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
       <HashRouter>
         <Switch>
           <Route exact path="/" render={(props) => <Landing {...props} />} />
+          <Route path='/manualFacebook' component={ManualFacebookReclaim} />
+          <Route path='/manualTwitter' component={ManualTwitterReclaim} />
           <Route
             exact
             path="/categories"

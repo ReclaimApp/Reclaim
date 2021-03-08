@@ -3,9 +3,9 @@ import Styled from 'styled-components';
 import { Button, Container, Jumbotron } from 'react-bootstrap';
 import facebookScriptIndex from '../automation/facebook/index';
 import twitterScriptIndex from '../automation/twitter/index';
-import AutomaticFacebookReclaim from './ManualReclaim/AutomaticFacebookReclaim';
-import AutomaticTwitterReclaim from './ManualReclaim/AutomaticTwitterReclaim';
-import StyleSheet from './onboarding.module.css';
+import AutomaticFacebookReclaim from './AutoReclaim/AutomaticFacebookReclaim';
+import AutomaticTwitterReclaim from './AutoReclaim/AutomaticTwitterReclaim';
+import StyleSheet from './landing.module.css';
 
 const StyledButton = Styled.button`
   width: 40%;
@@ -51,8 +51,8 @@ const Landing = (props) => {
         <AutomaticFacebookReclaim startFacebookScript={startFacebookScript} scriptRunning={scriptRunning} history={props.history} />
         <AutomaticTwitterReclaim startTwitterScript={startTwitterScript} scriptRunning={scriptRunning} history={props.history} />
       </Container>
-      <Button as={StyledButton}>Manual data download Facebook</Button>
-      <Button as={StyledButton}>Manual data download Twitter</Button>
+      <Button onClick={() => props.history.push('/manualFacebook')} as={StyledButton}>Manual data download Facebook</Button>
+      <Button onClick={() => props.history.push('/manualTwitter')} as={StyledButton}>Manual data download Twitter</Button>
     </div>
   );
 };
