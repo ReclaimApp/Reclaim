@@ -51,3 +51,4 @@ npm-debug.log.*
 *.css.d.ts
 *.sass.d.ts
 *.scss.d.ts
+src/user_data/credentials/facebookCredentials.js
