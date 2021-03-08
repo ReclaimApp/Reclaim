@@ -1,7 +1,7 @@
 require('dotenv').config();
 import { chromium } from 'playwright';
 
-async function setUpBrower(storageState, downloadPath = `${window.process.argv.slice(-1)[0]}/your_data/facebook`) {
+async function setUpBrower(storageState, downloadPath) {
 
   /* start headless browser with credentials */
   const browser = await chromium.launch({
