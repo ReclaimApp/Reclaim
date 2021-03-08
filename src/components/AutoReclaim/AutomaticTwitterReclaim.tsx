@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Col } from 'react-bootstrap';
 import Styled from 'styled-components';
-import StyleSheet from '../landing.module.css';
+import StyleSheet from './autoReclaim.module.css';
 
 const StyledButton = Styled.button`
   width: 70%;
