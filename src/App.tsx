@@ -25,7 +25,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" render={(props) => <Landing {...props} />} />
           <Route path='/manualFacebook' render={(props) => <ManualFacebookReclaim {...props} />} />
-          <Route path='/manualTwitter' component={ManualTwitterReclaim} />
+          <Route path='/manualTwitter' render={(props) => <ManualTwitterReclaim {...props} />} />
           <Route
             exact
             path="/categories"

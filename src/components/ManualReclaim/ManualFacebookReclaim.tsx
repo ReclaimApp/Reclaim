@@ -48,6 +48,7 @@ const ManualFacebookReclaim = (props) => {
         <p className={StyleSheet.subtext}>Click 'create file' and make sure the Date Range, Format, and Media Quality are the same as the image below</p>
         <img className={StyleSheet.downloadImg} src={fbDownload} alt='Facebook data download component for "requesting a copy"'/>
         <p className={StyleSheet.subtext}>Facebook is now creating your file which will take some time</p>
+        <br/>
         <p className={StyleSheet.step}>Step 3: Download your data from 'Available Copies' tab</p>
         <Button onClick={() => window.open('https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings')} as={StyledButton}>Download Your Information</Button>
         <p className={StyleSheet.subtext}>Finally unzip your data folder and place it in a folder called 'your_data' in your Documents folder</p>
