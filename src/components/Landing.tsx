@@ -79,11 +79,15 @@ const Landing = (props) => {
   );
 
   const startScript = () => {
+
+
+    //start facebook script
     facebookScriptIndex();
   };
 
   return (
     <div className={StyleSheet.landing}>
+
       <Jumbotron fluid>
         <Container>
           <h1 className={StyleSheet.header}>SelfExplore</h1>
@@ -95,9 +99,8 @@ const Landing = (props) => {
       </Jumbotron>
       <Button
         className={
-          scriptRunning ? StyleSheet.autoButtonDisabled : StyleSheet.autoButton
+          StyleSheet.autoButton
         }
-        disabled={scriptRunning}
         onClick={startScript}
       >
         Automatically reclaim Facebook data
