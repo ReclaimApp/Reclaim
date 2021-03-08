@@ -36,7 +36,7 @@ const AutomaticTwitterReclaim = ({ history, scriptRunning, startTwitterScript })
     (state) => state.TwitterReducer.userTwtrData
   );
   return (
-    <Col className={StyleSheet.columnOpen}>
+    <Col className={StyleSheet.column}>
       <h2 className={StyleSheet.columnHeader}>
         Automatically reclaim Twitter data
       </h2>

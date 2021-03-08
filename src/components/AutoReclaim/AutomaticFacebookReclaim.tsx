@@ -34,7 +34,7 @@ const StyledButtonDisabled = Styled.button`
 const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript }) => {
   const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
   return (
-    <Col className={StyleSheet.columnOpen}>
+    <Col className={StyleSheet.column}>
       <h2 className={StyleSheet.columnHeader}>
         Automatically reclaim Facebook data
       </h2>

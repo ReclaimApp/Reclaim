@@ -24,7 +24,7 @@ const App = () => {
       <HashRouter>
         <Switch>
           <Route exact path="/" render={(props) => <Landing {...props} />} />
-          <Route path='/manualFacebook' component={ManualFacebookReclaim} />
+          <Route path='/manualFacebook' render={(props) => <ManualFacebookReclaim {...props} />} />
           <Route path='/manualTwitter' component={ManualTwitterReclaim} />
           <Route
             exact

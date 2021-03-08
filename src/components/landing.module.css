@@ -20,24 +20,12 @@
   font-size: 1.5rem;
 }
 
-.columnOpen {
+.column {
   height: 40vh;
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 2%;
-  border: 1px solid black;
-  border-radius: 5px;
-  background: linear-gradient(to bottom right, oldlace, #6e54c4);
-}
-
-.columnClosed {
-  height: 20vh;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   margin-top: 2%;
   border: 1px solid black;
   border-radius: 5px;
