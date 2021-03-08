@@ -23,6 +23,8 @@ async function downloadFile(page, browser) {
   // click download button
   console.log('Starting download');
   await doc.click('button[type=submit]');
+  // todo: handle the case when there is no download button to press?
+
   let download;
   try {
     download = await page.waitForEvent('download'); // wait for download to start
