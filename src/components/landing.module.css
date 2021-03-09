@@ -27,3 +27,15 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.footerContainer {
+  width: 90%;
+  padding: 0.5%;
+  margin: 1% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: linear-gradient(to bottom right, oldlace, #6e54c4);
+}
