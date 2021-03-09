@@ -10,7 +10,7 @@ async function goToDownloadFile(context) {
     'https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings',
     { waitUntil: 'networkidle' }
   );
-
+  debugger
   // select child frame
   let doc
   try {
