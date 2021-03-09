@@ -1,14 +1,8 @@
 require('dotenv').config();
 import { chromium } from 'playwright';
-import writeFile from "../../writeFile"
-import userCredentialPath from "../../../user_data/credentials/userCredentialsPath"
+import writeDocument from "../../helperFunctions/writeFile"
 
-async function login(isSaveCredentials) {
-  /* create credential file */
-
-
-  console.log("userCredentialPath: " + userCredentialPath)
-
+async function login(credentialsPath) {
   /* start browser */
   const browser = await chromium.launch({
     args: [
@@ -24,7 +18,6 @@ async function login(isSaveCredentials) {
   try {
     // Create a new incognito browser context.
     const context = await browser.newContext({
-      acceptDownloads: true,
       viewport: null,
     });
     // Create a new page in a pristine context.
@@ -34,28 +27,25 @@ async function login(isSaveCredentials) {
     await page.goto(
       'https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings'
     );
+    console.log("going to wait for request")
 
-    // Interact with login form
-    await page.fill('#email', process.env.ID || "No Id");
-    await page.fill('#pass', process.env.PASS || "No password");
-    await page.click('[type=submit]');
-    // wait for login
-    await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+    // capture the id and password for later enter of credentials
+    // request.postDataJSON()
+
+    // wait for until the user closes the window
+    // gives enough time for filling extra audentication
+    await page.waitForEvent('close', {timeout: 0});
 
     /* save facebook credentials */
-    const storage = await context.storageState();
+    const storageData = await context.storageState();
+    console.log({storageData})
 
-    if(isSaveCredentials){
-      // create credential file
-      writeFile(userCredentialPath, storage)
-    }
-
-    // Save storage state and store as an env variable
-    process.env.STORAGE = JSON.stringify(storage);
-
+    // create credential file
+    await writeDocument(credentialsPath, JSON.stringify(storageData))
 
     // close headfull browser
     await browser.close();
+
   } catch (error) {
     console.log("Something when wrong when login in")
     console.log(error)
