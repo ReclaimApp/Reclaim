@@ -44,11 +44,10 @@ main.js
 main.js.map
 .env
 src/user_data/facebook
-src/user_data/credentials/facebook.js
 
 .idea
 npm-debug.log.*
 *.css.d.ts
 *.sass.d.ts
 *.scss.d.ts
-src/user_data/credentials/facebookCredentials.js
+src/user_data/credentials/
