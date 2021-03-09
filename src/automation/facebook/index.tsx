@@ -9,6 +9,7 @@ import getCredentials from "./scripts/getCredentials"
 async function index(
   downloadPath = normalize(`${__dirname}/user_data/facebook`),
   ) {
+  const documentsPath = window.process.argv.slice(-1)[0];
 
   /* get credentials */
   // get user account access
@@ -16,11 +17,11 @@ async function index(
 
   /* start browser */
   console.log({credentialsFile})
-  const [browser, context] = await setUpBrower(credentialsFile, downloadPath);
+  // const [browser, context] = await setUpBrower(credentialsFile, downloadPath);
 
   try {
-    /* select correct frame */
-    const [page, dataDoc] = await goToDownloadFile(context);
+    // /* select correct frame */
+    // const [page, dataDoc] = await goToDownloadFile(context);
 
     // /* ask for files */
     // await askForFile(dataDoc);
@@ -29,12 +30,12 @@ async function index(
     // await waitForFile(page, dataDoc);
 
     /* Download files */
-    // await downloadFile(page, browser);
+    // await downloadFile(page, browser, documentsPath);
 
     /* unzip file and delete zip file */
 
-    /* Close Automation */
-    await browser.close();
+    // /* Close Automation */
+    // await browser.close();
 
   } catch (error) {
     /* handle the handless script breaking */
