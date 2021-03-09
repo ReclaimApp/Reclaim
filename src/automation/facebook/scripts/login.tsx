@@ -23,18 +23,32 @@ async function login(credentialsPath) {
     // Create a new page in a pristine context.
     const page = await context.newPage();
 
-    /* Authentication */
+    /* go to facebook login */
     await page.goto(
-      'https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings'
+      'https://www.facebook.com/login'
     );
     console.log("going to wait for request")
 
-    // capture the id and password for later enter of credentials
-    // request.postDataJSON()
+    //Todo: what the option to capture the user id and password for later credential reentering
+    /*
+      capture client response id and pass
+      there should be a request from client with the id and password
 
-    // wait for until the user closes the window
-    // gives enough time for filling extra audentication
-    await page.waitForEvent('close', {timeout: 0});
+      capture that and save it for later use
+
+      close browser when:
+      - close the browser after reseving the credentials response
+      - cookies are populated
+
+      the desire cookies from facebook are
+      - c_user: number
+      - xs: encripted string
+
+    */
+    //caputure the request data
+
+    //wait until user cloes browser
+    await page.waitForNavigation({timeout: 0, url:"https://www.facebook.com/"});
 
     /* save facebook credentials */
     const storageData = await context.storageState();
