@@ -1,27 +1,12 @@
 require('dotenv').config();
-import { chromium } from 'playwright';
 import writeDocument from "../../helperFunctions/writeFile"
+import startHeadfullBrowser from "./startHeadfullBrowser"
 
 async function login(credentialsPath) {
   /* start browser */
-  const browser = await chromium.launch({
-    args: [
-      '--start-maximized',
-      '--disable-notifications',
-      '--disable-extensions',
-      '--mute-audio',
-    ],
-    defaultViewport: null,
-    headless: false,
-  });
+  const [browser, page] = await startHeadfullBrowser()
 
   try {
-    // Create a new incognito browser context.
-    const context = await browser.newContext({
-      viewport: null,
-    });
-    // Create a new page in a pristine context.
-    const page = await context.newPage();
 
     /* go to facebook login */
     await page.goto(
