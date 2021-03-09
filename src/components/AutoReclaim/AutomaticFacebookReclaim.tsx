@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Col } from 'react-bootstrap';
+import { SocialIcon } from 'react-social-icons';
 import Styled from 'styled-components';
 import StyleSheet from './autoReclaim.module.css';
 
@@ -35,6 +36,7 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript 
   const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
   return (
     <Col className={StyleSheet.column}>
+      <SocialIcon target="_blank" rel="noopener noreferrer" className={StyleSheet.icon} url='http://facebook.com/login' />
       <h2 className={StyleSheet.columnHeader}>
         Automatically reclaim Facebook data
       </h2>

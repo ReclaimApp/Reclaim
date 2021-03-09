@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Col } from 'react-bootstrap';
+import { SocialIcon } from 'react-social-icons';
 import Styled from 'styled-components';
 import StyleSheet from './autoReclaim.module.css';
 
@@ -37,6 +38,7 @@ const AutomaticTwitterReclaim = ({ history, scriptRunning, startTwitterScript })
   );
   return (
     <Col className={StyleSheet.column}>
+      <SocialIcon target="_blank" rel="noopener noreferrer" className={StyleSheet.icon} url='http://twitter.com/login' />
       <h2 className={StyleSheet.columnHeader}>
         Automatically reclaim Twitter data
       </h2>

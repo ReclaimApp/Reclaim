@@ -71,3 +71,10 @@
   font-size: 1.3rem;
   font-weight: 500;
 }
+
+.icon {
+  margin: 0% auto;
+  border: 2px solid white;
+  background: white;
+  border-radius: 25px;
+}
