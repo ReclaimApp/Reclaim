@@ -73,6 +73,7 @@ const createWindow = async () => {
     width: 1024,
     height: 728,
     icon: getAssetPath('icon.png'),
+    backgroundColor: '#212529',
     webPreferences: {
       nodeIntegration: true,
       additionalArguments: [documentsPath],
