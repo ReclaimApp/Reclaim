@@ -5,7 +5,9 @@ import reportDownloadFile from "./reportDownloadFile"
 import startDownload from "./startDownload"
 
 
-async function downloadFile(page, browser, documentsPath) {
+async function downloadFile(props) {
+  const {page, browser, documentsPath} = props
+
   /* start download */
   const [doc, download] = await startDownload(page, browser)
 
