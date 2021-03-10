@@ -2,9 +2,8 @@ import { normalize } from 'path';
 import login from './login';
 import getCredentialFile from "../../helperFunctions/getCredentialFile"
 
-const getCredentials = async() => {
+const getCredentials = async(absoluteCredentialsPath) => {
     /* paths to files */
-    const absoluteCredentialsPath = normalize(`${__dirname}/user_data/credentials/facebookCredentials.js`)
     const relativeCredetialsPath = "../../user_data/credentials/facebookCredentials"
     console.log({credentialsPath: absoluteCredentialsPath})
 
@@ -29,6 +28,9 @@ const getCredentials = async() => {
       // save the credential file data
       credentialsFile = getCredentialFile(absoluteCredentialsPath)
       console.log({credentialsFile})
+
+    }else{
+        // todo: check that the cookies are not invalid
 
     }
 
