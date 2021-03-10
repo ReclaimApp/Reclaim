@@ -18,9 +18,14 @@ const getCredentials = async(absoluteCredentialsPath) => {
     //todo: if they don't sign in, I cannot resign in when facebook asks!
     //? what about capturing the id and password?
     //? what about waiting until they close the window? so if they have to do a 2 verification they can do it.
+    // todo: check that the cookies are not invalid by reading the data
+    // validate the credentials
     console.log({credentialsFile})
+
     const isNoCredentials = credentialsFile ? false : true
+
     console.log({isNoCredentials})
+    debugger
     if(isNoCredentials) {
       // capture user cookies and save it into their facebook credential file
       await login(absoluteCredentialsPath);
@@ -28,9 +33,6 @@ const getCredentials = async(absoluteCredentialsPath) => {
       // save the credential file data
       credentialsFile = getCredentialFile(absoluteCredentialsPath)
       console.log({credentialsFile})
-
-    }else{
-        // todo: check that the cookies are not invalid
 
     }
 

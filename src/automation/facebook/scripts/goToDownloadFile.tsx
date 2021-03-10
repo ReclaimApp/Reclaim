@@ -1,16 +1,15 @@
 import reattachFrame from'./reattachFrame';
-import storeCredentials from './login';
+import login from './login';
 
-async function goToDownloadFile(context) {
+async function goToDownloadFile(props) {
+  const {context, absoluteCredentialsPath} = props
   // Create a new page in a pristine context.
   const page = await context.newPage();
 
   // go to download your information
-  await page.goto(
-    'https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings',
-    { waitUntil: 'networkidle' }
-  );
-  debugger
+  await page.goto('https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings',
+    { waitUntil: 'networkidle' });
+
   // select child frame
   let doc
   try {
@@ -19,8 +18,16 @@ async function goToDownloadFile(context) {
     /* if credentials are out of date, update them */
     // should fail only when you are not login
     console.log("Credentials appear to be out of date. Starting to update them.")
-    const isSaveNewCredentials = true
-    await storeCredentials(isSaveNewCredentials);
+    console.log(error)
+
+    //recapture the cookies
+    await login(absoluteCredentialsPath);
+
+    // come back to the download website
+    await page.goto('https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings',
+    { waitUntil: 'networkidle' });
+
+    // capture the frame
     doc = await reattachFrame(page);
   }
 

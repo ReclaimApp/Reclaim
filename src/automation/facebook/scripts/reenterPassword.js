@@ -1,6 +1,7 @@
 import startHeadfullBrowser from "./startHeadfullBrowser"
 import gotoDownloadOption from "./gotoDownloadOption"
-const reenterPassword = async (pageUrl) => {
+const reenterPassword = async (props) => {
+  const {pageUrl, absoluteCredentialsPath} = props
   /* solution if I where to have their password
       // retype password
       await doc.fill('input[type=password]', process.env.PASS);
@@ -14,7 +15,8 @@ const reenterPassword = async (pageUrl) => {
       */
 
   /* let user enter their password */
-  const {browser, page} = await startHeadfullBrowser()
+  const isRunWithCredentials = true
+  const {browser, page} = await startHeadfullBrowser({isRunWithCredentials, absoluteCredentialsPath})
 
   await page.goto(pageUrl)
   let doc = await gotoDownloadOption(page)

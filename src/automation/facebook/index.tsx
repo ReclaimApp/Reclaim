@@ -14,7 +14,7 @@ async function index(
 
   /* start browser */
   // if the browser cannot start then don't run the script
-    const {browser, context, isRunScript: isNoRunScript} = await setUpBrower(downloadPath)
+    const {browser, context, isRunScript: isNoRunScript} = await setUpBrower({downloadPath, absoluteCredentialsPath})
 
   if(isNoRunScript){
     try {
@@ -29,7 +29,7 @@ async function index(
       // await waitForFile(page, dataDoc)
 
       /* Download files */
-      await downloadFile({page, browser, documentsPath})
+      await downloadFile({page, documentsPath, absoluteCredentialsPath})
 
       /* Close Automation */
       await browser.close()

@@ -2,10 +2,11 @@ require('dotenv').config();
 import { chromium } from 'playwright';
 import getCredentials from "./getCredentials"
 
-async function setUpBrower(downloadPath) {
+async function setUpBrower(props) {
+  const {downloadPath, absoluteCredentialsPath} = props
   /* get credentials */
   // get user account access
-  const storageState = await getCredentials()
+  const storageState = await getCredentials(absoluteCredentialsPath)
   console.log({storageState})
 
   const isThereCrendtialsFile = storageState === null ? false : true
