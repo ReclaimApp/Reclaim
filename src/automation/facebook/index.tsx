@@ -1,15 +1,15 @@
 import goToDownloadFile from './scripts/goToDownloadFile'
-import askForFile from'./scripts/askForFiles';
-import waitForFile from'./scripts/waitForFile';
-import downloadFile from './scripts/downloadFile';
-import setUpBrower from './scripts/setUpBrowser';
-import { normalize } from 'path';
+import askForFile from'./scripts/askForFiles'
+import waitForFile from'./scripts/waitForFile'
+import downloadFile from './scripts/downloadFile'
+import setUpBrower from './scripts/setUpBrowser'
+import { normalize } from 'path'
 import getCredentials from "./scripts/getCredentials"
 
 async function index(
   downloadPath = normalize(`${__dirname}/user_data/facebook`),
   ) {
-  const documentsPath = window.process.argv.slice(-1)[0];
+  const documentsPath = window.process.argv.slice(-1)[0]
 
   /* get credentials */
   // get user account access
@@ -21,24 +21,24 @@ async function index(
     // run the scrip if there is login file/cookies
     try {
       /* start browser */
-      // const [browser, context] = await setUpBrower(credentialsFile, downloadPath);
+      const [browser, context] = await setUpBrower(credentialsFile, downloadPath)
 
       /* select correct frame */
-      // const [page, dataDoc] = await goToDownloadFile(context);
+      const [page, dataDoc] = await goToDownloadFile(context)
 
       // /* ask for files */
-      // await askForFile(dataDoc);
+      // await askForFile(dataDoc)
 
       // /* Wait for files */
-      // await waitForFile(page, dataDoc);
+      // await waitForFile(page, dataDoc)
 
       /* Download files */
-      // await downloadFile(page, browser, documentsPath);
+      await downloadFile(page, browser, documentsPath)
 
       /* unzip file and delete zip file */
 
       /* Close Automation */
-      // await browser.close();
+      await browser.close()
 
     } catch (error) {
       /* handle the handless script breaking */
@@ -46,7 +46,7 @@ async function index(
       console.log(error)
 
       /* Close Automation */
-      // await browser.close();
+      // await browser.close()
 
     }
   } else{
