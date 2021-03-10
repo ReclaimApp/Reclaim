@@ -1,6 +1,6 @@
 import { normalize } from 'path';
-import { existsSync, readFileSync } from 'fs'
 import login from './login';
+import getCredentialFile from "../../helperFunctions/getCredentialFile"
 
 const getCredentials = async() => {
     /* paths to files */
@@ -10,14 +10,7 @@ const getCredentials = async() => {
 
     /* Dynamically import the credentials file*/
     let credentialsFile
-    const isCredentialsExist = existsSync(absoluteCredentialsPath)
-    console.log({isCredentialsExist})
-    // import credential files if they exist
-    if (isCredentialsExist){
-      credentialsFile = readFileSync(absoluteCredentialsPath, {encoding: 'utf8'})
-    }
-    // if credential File does not exist then set it to null
-    else credentialsFile = null
+    credentialsFile = getCredentialFile(absoluteCredentialsPath)
 
     /* create creadential file*/
     // skipped if there is a valid credential file
@@ -30,9 +23,16 @@ const getCredentials = async() => {
     const isNoCredentials = credentialsFile ? false : true
     console.log({isNoCredentials})
     if(isNoCredentials) {
+      // capture user cookies and save it into their facebook credential file
       await login(absoluteCredentialsPath);
-      credentialsFile = readFileSync(absoluteCredentialsPath, {encoding: 'utf8'})
+
+      // save the credential file data
+      credentialsFile = getCredentialFile(absoluteCredentialsPath)
+      console.log({credentialsFile})
+
     }
+
+    //return the credentialsFile if found or null if not
     return credentialsFile
   }
   export default getCredentials
