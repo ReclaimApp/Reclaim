@@ -14,7 +14,7 @@ const reenterPassword = async (pageUrl) => {
       */
 
   /* let user enter their password */
-  const [browser, page] = await startHeadfullBrowser()
+  const {browser, page} = await startHeadfullBrowser()
 
   await page.goto(pageUrl)
   let doc = await gotoDownloadOption(page)
