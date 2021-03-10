@@ -14,38 +14,46 @@ async function index(
   /* get credentials */
   // get user account access
   const credentialsFile = await getCredentials()
-
-  /* start browser */
   console.log({credentialsFile})
-  // const [browser, context] = await setUpBrower(credentialsFile, downloadPath);
 
-  try {
-    // /* select correct frame */
-    // const [page, dataDoc] = await goToDownloadFile(context);
+  const isThereCrendtialsFile = credentialsFile === null ? false : true
+  if(isThereCrendtialsFile){
+    // run the scrip if there is login file/cookies
+    try {
+      /* start browser */
+      // const [browser, context] = await setUpBrower(credentialsFile, downloadPath);
 
-    // /* ask for files */
-    // await askForFile(dataDoc);
+      /* select correct frame */
+      // const [page, dataDoc] = await goToDownloadFile(context);
 
-    // /* Wait for files */
-    // await waitForFile(page, dataDoc);
+      // /* ask for files */
+      // await askForFile(dataDoc);
 
-    /* Download files */
-    // await downloadFile(page, browser, documentsPath);
+      // /* Wait for files */
+      // await waitForFile(page, dataDoc);
 
-    /* unzip file and delete zip file */
+      /* Download files */
+      // await downloadFile(page, browser, documentsPath);
 
-    // /* Close Automation */
-    // await browser.close();
+      /* unzip file and delete zip file */
 
-  } catch (error) {
-    /* handle the handless script breaking */
-    console.log("the headless script broke")
-    console.log(error)
+      /* Close Automation */
+      // await browser.close();
 
-    /* Close Automation */
-    // await browser.close();
+    } catch (error) {
+      /* handle the handless script breaking */
+      console.log("the headless script broke")
+      console.log(error)
 
+      /* Close Automation */
+      // await browser.close();
+
+    }
+  } else{
+    // don't run the script when the user closes the headful login to capture their credentials
+    console.log("Didn't ran the script")
   }
+
 
 }
 
