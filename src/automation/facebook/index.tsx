@@ -4,27 +4,23 @@ import waitForFile from'./scripts/waitForFile'
 import downloadFile from './scripts/downloadFile'
 import setUpBrower from './scripts/setUpBrowser'
 import { normalize } from 'path'
-import getCredentials from "./scripts/getCredentials"
 
 async function index(
   downloadPath = normalize(`${__dirname}/user_data/facebook`),
   ) {
+  const absoluteCredentialsPath = normalize(`${__dirname}/user_data/credentials/facebookCredentials.js`)
   const documentsPath = window.process.argv.slice(-1)[0]
 
-  /* get credentials */
-  // get user account access
-  const credentialsFile = await getCredentials()
-  console.log({credentialsFile})
 
-  const isThereCrendtialsFile = credentialsFile === null ? false : true
-  if(isThereCrendtialsFile){
-    // run the scrip if there is login file/cookies
+  /* start browser */
+  // if the browser cannot start then don't run the script
+    const {browser, context, isRunScript: isNoRunScript} = await setUpBrower(downloadPath)
+
+  if(isNoRunScript){
     try {
-      /* start browser */
-      const [browser, context] = await setUpBrower(credentialsFile, downloadPath)
 
       /* select correct frame */
-      const [page, dataDoc] = await goToDownloadFile(context)
+      const [page, dataDoc] = await goToDownloadFile({context, absoluteCredentialsPath})
 
       // /* ask for files */
       // await askForFile(dataDoc)
@@ -33,9 +29,7 @@ async function index(
       // await waitForFile(page, dataDoc)
 
       /* Download files */
-      await downloadFile(page, browser, documentsPath)
-
-      /* unzip file and delete zip file */
+      await downloadFile({page, browser, documentsPath})
 
       /* Close Automation */
       await browser.close()
@@ -46,7 +40,7 @@ async function index(
       console.log(error)
 
       /* Close Automation */
-      // await browser.close()
+      await browser.close()
 
     }
   } else{
