@@ -18,7 +18,7 @@ const startHeadfullBrowser = async () => {
     // Create a new page in a pristine context.
     const page = await context.newPage();
 
-    return [browser, page]
+    return {browser, context, page}
   }
 
   export default startHeadfullBrowser
