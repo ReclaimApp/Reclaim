@@ -10,11 +10,13 @@ async function downloadFile(props) {
 
   /* start download */
   const {doc, download, isDownloadStarted} = await startDownload({page, absoluteCredentialsPath})
+  console.log({doc, download, isDownloadStarted})
+
   if(isDownloadStarted){
     /* download file */
     await download.path();
     const fileName = await download.suggestedFilename();
-    const fileNamePath = `${documentsPath}/your_data/${fileName}`
+    const fileNamePath = `../../../your_data/${fileName}`
 
     //Make file name readable
     const facebookFile = await download.saveAs(fileNamePath);
