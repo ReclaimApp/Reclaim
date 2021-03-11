@@ -7,13 +7,13 @@ async function goToDownloadFile(props) {
   const page = await context.newPage();
 
   // go to download your information
-  await page.goto('https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings',
-    { waitUntil: 'networkidle' });
+  await page.goto('https://www.facebook.com/dyi/?x=AdkadZSUMBkpk0EF&referrer=yfi_settings'), {waitUntil: "domcontentloaded"};
 
   // select child frame
   let doc
   try {
     doc = await reattachFrame(page);
+    await doc.waitForLoadState('domcontentloaded')
   } catch (error) {
     /* if credentials are out of date, update them */
     // should fail only when you are not login

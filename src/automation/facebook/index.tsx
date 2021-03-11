@@ -28,7 +28,7 @@ async function index(
       // await waitForFile(page, dataDoc)
 
       /* Download files */
-      await downloadFile({page, documentsPath, absoluteCredentialsPath})
+      await downloadFile({page, documentsPath, absoluteCredentialsPath, browser})
 
       /* Close Automation */
       await browser.close()

@@ -16,15 +16,17 @@ const startDownload = async (props) => {
     console.log('Starting download');
     let download
     try {
-      // [download] = await Promise.all([
-      //   page.waitForEvent('download'),
-      //   doc.click('button[type=submit]')
-      // ])
       page.on("download", downloadEvent => {
         download = downloadEvent
       })
       await doc.click('button[type=submit]')
-      const isDownloading = await doc.waitForSelector("td button[type=submit]") ? false : true
+      let isDownloading
+      try {
+        //waiting to see if there is
+        isDownloading = await doc.waitForSelector("td button[type=submit]") ? false : true
+      } catch (error) {
+        isDownloading = true
+      }
 
       if(isDownloading){
         debugger
@@ -55,6 +57,7 @@ const startDownload = async (props) => {
 
         //download again
         console.log("starting donwloading the file after reentering the password")
+        // await doc.click('button[type=submit]')
         [download] = await Promise.all([
           page.waitForEvent('download'),
           doc.click('button[type=submit]')
