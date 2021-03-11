@@ -16,10 +16,6 @@ const startDownload = async (props) => {
     console.log('Starting download');
     let download
     try {
-      // [download] = await Promise.all([
-      //   page.waitForEvent('download'),
-      //   doc.click('button[type=submit]')
-      // ])
       page.on("download", downloadEvent => {
         download = downloadEvent
       })
