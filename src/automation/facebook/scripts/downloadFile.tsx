@@ -3,7 +3,7 @@ import extract from "extract-zip"
 import deleteZipFile from "./deleteZipFile";
 import reportDownloadFile from "./reportDownloadFile"
 import startDownload from "./startDownload"
-
+import { normalize } from 'path'
 
 async function downloadFile(props) {
   const {page, documentsPath, absoluteCredentialsPath, browser} = props
@@ -16,11 +16,11 @@ async function downloadFile(props) {
     /* download file */
     await download.path();
     const fileName = await download.suggestedFilename();
-    const fileNamePath = `../../../your_data/${fileName}`
+    const fileNamePath = normalize(`${__dirname}/user_data/${fileName}`)
 
     //Make file name readable
+    debugger
     const facebookFile = await download.saveAs(fileNamePath);
-
     /* start report for downloading file */
     //todo: Console log does not work on productions. need to something else like notification or GUI visual.
     await reportDownloadFile({page, doc, download, fileName, browser})

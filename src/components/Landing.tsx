@@ -3,13 +3,8 @@ import {
   Button,
   Container,
   Jumbotron,
-  // Row,
-  Col,
-  OverlayTrigger,
-  Tooltip,
 } from 'react-bootstrap';
 import Styled from 'styled-components';
-import { Button, Container, Jumbotron } from 'react-bootstrap';
 import facebookScriptIndex from '../automation/facebook/index';
 import twitterScriptIndex from '../automation/twitter/index';
 import AutomaticFacebookReclaim from './AutoReclaim/AutomaticFacebookReclaim';
@@ -37,6 +32,11 @@ const Landing = (props) => {
   const startFacebookScript = () => {
     // setScriptRunning(true);
     facebookScriptIndex();
+  };
+
+  const startTwitterScript = () => {
+    // setScriptRunning(true);
+    twitterScriptIndex();
   };
 
   return (
