@@ -11,7 +11,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, Notification } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -125,6 +125,14 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+function showNotification (notificationTitle, notificationBody) {
+  const notification = {
+    title: notificationTitle,
+    body:  notificationBody
+  }
+  new Notification(notification).show()
+}
 
 app.whenReady().then(createWindow).catch(console.log);
 
