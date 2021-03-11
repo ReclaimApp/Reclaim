@@ -6,7 +6,7 @@ import startDownload from "./startDownload"
 
 
 async function downloadFile(props) {
-  const {page, documentsPath, absoluteCredentialsPath} = props
+  const {page, documentsPath, absoluteCredentialsPath, browser} = props
 
   /* start download */
   const {doc, download, isDownloadStarted} = await startDownload({page, absoluteCredentialsPath})
@@ -23,7 +23,7 @@ async function downloadFile(props) {
 
     /* start report for downloading file */
     //todo: Console log does not work on productions. need to something else like notification or GUI visual.
-    await reportDownloadFile(page, doc, download, fileName)
+    await reportDownloadFile({page, doc, download, fileName, browser})
 
     // delete the criptic file name
     await download.delete();

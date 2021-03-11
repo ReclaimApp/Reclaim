@@ -1,6 +1,7 @@
 import startReportDownloadStatus from './startReportDownloadStatus';
 
-const reportDownloadFile = async (page, doc, download, fileName) => {
+const reportDownloadFile = async (props) => {
+  const {page, doc, download, fileName, browser} = props
     /* setup console download reports and rename download file to recommended name */
     // download file with defaul name and no duplicates
     // custom file loader reports

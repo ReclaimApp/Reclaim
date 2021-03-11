@@ -1,4 +1,5 @@
 import {writeFile} from "fs"
+// only makes makes a file not a folder
 
 const writeDocument = async ( filePathName, data ) => {
   await writeFile(filePathName, data, function (err) {
