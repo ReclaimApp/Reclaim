@@ -1,46 +1,52 @@
-import goToDownloadYourInformation from './scripts/goToDownloadYourInformation'
-import storeCredentials from './scripts/storeCredentials';
-import askForFile from'./scripts/askForFiles';
-import waitForFile from'./scripts/waitForFile';
-import downloadFile from './scripts/downloadFile';
-import setUpBrower from './scripts/setUpBrowser';
-// const credentials = require('../credentials');
+import goToDownloadFile from './scripts/goToDownloadFile'
+import askForFile from'./scripts/askForFiles'
+import waitForFile from'./scripts/waitForFile'
+import downloadFile from './scripts/downloadFile'
+import setUpBrower from './scripts/setUpBrowser'
+import { normalize } from 'path'
 
-async function index() {
-  /* save credentials enter by user */
-  await storeCredentials();
+async function index(
+  downloadPath = normalize(`${__dirname}/user_data/facebook`),
+  ) {
+  const absoluteCredentialsPath = normalize(`${__dirname}/user_data/credentials/facebookCredentials.js`)
+  const documentsPath = window.process.argv.slice(-1)[0]
 
   /* start browser */
-  // const [browser, context] = await setUpBrower(JSON.stringify(credentials))
-  const [browser, context] = await setUpBrower();
+  // if the browser cannot start then don't run the script
+  const {browser, context, isRunScript: isNoRunScript} = await setUpBrower({downloadPath, absoluteCredentialsPath})
 
-  try {
-    /* select correct frame */
-    const [page, dataDoc] = await goToDownloadYourInformation(context);
+  if(isNoRunScript){
+    try {
 
-    // /* ask for files */
-    // await askForFile(dataDoc);
+      /* select correct frame */
+      const [page, dataDoc] = await goToDownloadFile({context, absoluteCredentialsPath})
 
-    // /* Wait for files */
-    // await waitForFile(page, dataDoc);
+      // /* ask for files */
+      // await askForFile(dataDoc)
 
-    /* Download files */
-    await downloadFile(page, browser);
+      // /* Wait for files */
+      // await waitForFile(page, dataDoc)
 
-    /* unzip file and delete zip file */
+      /* Download files */
+      await downloadFile({page, documentsPath, absoluteCredentialsPath})
 
-    /* Close Automation */
-    await browser.close();
+      /* Close Automation */
+      await browser.close()
 
-  } catch (error) {
-    /* handle the handless script breaking */
-    console.log("the headless script broke")
-    console.log(error)
+    } catch (error) {
+      /* handle the handless script breaking */
+      console.log("the headless script broke")
+      console.log(error)
 
-    /* Close Automation */
-    // await browser.close();
+      /* Close Automation */
+      await browser.close()
 
+    }
+  } else{
+    // don't run the script when the user closes the headful login to capture their credentials
+    console.log("Didn't ran the script")
   }
+
 
 }
 

@@ -1,7 +1,11 @@
 require('dotenv').config();
 import { chromium } from 'playwright';
+import writeFile from "../../writeFile"
+import userCredentialPath from "../../../user_data/credentials/userCredentialsPath"
 
-async function login() {
+async function login(isSaveCredentials) {
+  console.log("userCredentialPath: " + userCredentialPath)
+
   /* start browser */
   const browser = await chromium.launch({
     args: [
@@ -12,7 +16,6 @@ async function login() {
     ],
     defaultViewport: null,
     headless: false,
-    downloadsPath: 'D:\\Lambda\\projects\\puppeteer_test\\data',
   });
 
   try {
@@ -36,9 +39,17 @@ async function login() {
     // wait for login
     await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
 
-    // Save storage state and store as an env variable
+    /* save facebook credentials */
     const storage = await context.storageState();
-    process.env.STORAGE = JSON.stringify(storage);
+
+    if(isSaveCredentials){
+      // create credential file
+      writeFile(userCredentialPath, storage)
+    }else{
+      // Save storage state and store as an env variable
+
+      process.env.STORAGE = JSON.stringify(storage);
+    }
 
     // close headfull browser
     await browser.close();

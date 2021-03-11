@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import {
+  Button,
+  Container,
+  Jumbotron,
+  // Row,
+  Col,
+  OverlayTrigger,
+  Tooltip,
+} from 'react-bootstrap';
 import Styled from 'styled-components';
 import { Button, Container, Jumbotron } from 'react-bootstrap';
 import facebookScriptIndex from '../automation/facebook/index';
@@ -28,16 +37,11 @@ const Landing = (props) => {
   const startFacebookScript = () => {
     // setScriptRunning(true);
     facebookScriptIndex();
-    // setScriptRunning(false);
-  };
-  const startTwitterScript = () => {
-    // setScriptRunning(true);
-    twitterScriptIndex();
-    // setScriptRunning(false);
   };
 
   return (
     <div className={StyleSheet.landing}>
+
       <Jumbotron fluid>
         <Container>
           <h1 className={StyleSheet.header}>Reclaim</h1>
