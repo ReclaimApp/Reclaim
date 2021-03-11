@@ -11,10 +11,9 @@ async function index(
   const absoluteCredentialsPath = normalize(`${__dirname}/user_data/credentials/facebookCredentials.js`)
   const documentsPath = window.process.argv.slice(-1)[0]
 
-
   /* start browser */
   // if the browser cannot start then don't run the script
-    const {browser, context, isRunScript: isNoRunScript} = await setUpBrower({downloadPath, absoluteCredentialsPath})
+  const {browser, context, isRunScript: isNoRunScript} = await setUpBrower({downloadPath, absoluteCredentialsPath})
 
   if(isNoRunScript){
     try {
