@@ -20,6 +20,9 @@ const startDownload = async (props) => {
       //   page.waitForEvent('download'),
       //   doc.click('button[type=submit]')
       // ])
+      page.on("download", downloadEvent => {
+        download = downloadEvent
+      })
       await doc.click('button[type=submit]')
       const isDownloading = await doc.waitForSelector("td button[type=submit]") ? false : true
 
@@ -27,7 +30,8 @@ const startDownload = async (props) => {
         debugger
 
         // capture the download event
-        download = await page.waitForEvent('download')
+        // download = await page.waitForEvent('download')
+        console.log({download})
       }
       else{
         debugger
@@ -36,18 +40,21 @@ const startDownload = async (props) => {
         console.log('Asked to reenter password');
 
         // let user enter their password then on headfull then rerun the download script on headless
+        console.log("going to reenter password")
         const pageUrl = await page.url()
         await reenterPassword({pageUrl, absoluteCredentialsPath})
 
-        // todo: add a conditional to check if page needs to be reloaded or not
+        //? does the page needs to be reloaded
         // reflect the password being reenter
-        await page.reload()
+        console.log("Reloading the page")
+        await page.reload({waitUntil: "networkidle"})
 
-        // refocus on the frame
-        //?does refreshing keep it on the same tab?
-        doc = await reattachFrame(page);
+        // go to the download tab
+        console.log("focusing on the refresh frame")
+        doc = await gotoDownloadOption(page)
 
         //download again
+        console.log("starting donwloading the file after reentering the password")
         [download] = await Promise.all([
           page.waitForEvent('download'),
           doc.click('button[type=submit]')
