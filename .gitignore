@@ -43,11 +43,13 @@ dll
 main.js
 main.js.map
 .env
-src/user_data/facebook
+
+#ignore user_data specify data
+src/user_data/facebook/*
+src/user_data/credentials/*
 
 .idea
 npm-debug.log.*
 *.css.d.ts
 *.sass.d.ts
 *.scss.d.ts
-src/user_data/credentials/*
