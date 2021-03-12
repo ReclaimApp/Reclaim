@@ -22,10 +22,10 @@ async function index(
       const [page, dataDoc] = await goToDownloadFile({context, absoluteCredentialsPath})
 
       // /* ask for files */
-      // await askForFile(dataDoc)
+      await askForFile(dataDoc)
 
       // /* Wait for files */
-      // await waitForFile(page, dataDoc)
+      await waitForFile(page, dataDoc)
 
       /* Download files */
       await downloadFile({page, documentsPath, absoluteCredentialsPath, browser})
