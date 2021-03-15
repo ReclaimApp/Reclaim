@@ -22,8 +22,8 @@
 }
 
 .twitterColumn {
-  height: 60vh;
-  width: 60%;
+  height: 75vh;
+  width: 80%;
   margin: 1% auto;
   padding: 1%;
   display: flex;
@@ -56,7 +56,7 @@
 
 .listGroup {
   margin: 1% auto;
-  padding: 1%;
+  padding: 2%;
   margin-bottom: 3%;
   width: 95%;
   color: black;

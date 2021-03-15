@@ -5,7 +5,7 @@
   height: 96vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom right, #d7d6d6, #6e54c4);
+  background: rgb(40, 44, 52);
   font-family: 'Inconsolata';
 }
 
@@ -13,11 +13,13 @@
   font-size: 3rem;
   text-align: center;
   font-family: 'Audiowide';
+  color: white;
 }
 
 .headerText {
   text-align: center;
   font-size: 1.5rem;
+  color: white;
 }
 
 .parentContainer {
@@ -35,7 +37,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px solid black;
+  border: 2px solid white;
   border-radius: 5px;
   background: linear-gradient(to bottom right, oldlace, #6e54c4);
+}
+
+.footerText {
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
 }
