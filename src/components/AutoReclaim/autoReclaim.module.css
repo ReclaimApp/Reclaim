@@ -77,11 +77,20 @@
   opacity: 0.8;
 }
 
-.icon {
+.iconFacebook {
   margin: 0% auto;
-  border: 2px solid white;
+  font-size: 4rem;
+  color: royalblue;
   background: white;
+  border: 1px solid white;
   border-radius: 25px;
+}
+
+.iconTwitter {
+  margin: 0 auto;
+  font-size: 4rem;
+  background: white;
+  color: rgb(29, 161, 242);
 }
 
 .subtext {
