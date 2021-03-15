@@ -4,9 +4,9 @@ import Styled from 'styled-components';
 import StyleSheet from './manualReclaim.module.css';
 
 const StyledButton = Styled.button`
-  width: 50%;
+  width: 40%;
   margin: 2% auto;
-  padding: 1%;
+  padding: 2%;
   font-size: 1.3rem;
   background-color: #4b3f72;
   color: #fff;
@@ -37,7 +37,7 @@ const ManualTwitterReclaim = (props) => {
   return (
     <div className={StyleSheet.landing}>
       <h2 className={StyleSheet.header}>
-          Manually reclaim Facebook data
+          Manually reclaim Twitter data
       </h2>
       <Button as={HomeButton} onClick={() => props.history.push('/')}>Home</Button>
       <Col className={StyleSheet.twitterColumn}>
@@ -51,6 +51,9 @@ const ManualTwitterReclaim = (props) => {
           <ListGroup.Item className={StyleSheet.subtext}> - Finally unzip your data folder and place it in a folder called 'your_data' in your Documents folder</ListGroup.Item>
           <ListGroup.Item className={StyleSheet.subtext}> - Urgent: If there is no folder called 'your_data' in your Documents you must create that folder and place your data inside of it for the app to function</ListGroup.Item>
         </ListGroup>
+          <ListGroup.Item className={StyleSheet.subtext}>
+            If you have further issues please reach out to austin@reclaim.social
+          </ListGroup.Item>
       </Col>
     </div>
   )

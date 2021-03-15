@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Button, Col } from 'react-bootstrap';
-import { SocialIcon } from 'react-social-icons';
+import { Alert, Button, Col } from 'react-bootstrap';
+import { FaTwitterSquare } from 'react-icons/fa';
 import Styled from 'styled-components';
 import StyleSheet from './autoReclaim.module.css';
 
@@ -38,14 +38,19 @@ const AutomaticTwitterReclaim = ({ history, scriptRunning, startTwitterScript })
   );
   return (
     <Col className={StyleSheet.column}>
-      <SocialIcon target="_blank" rel="noopener noreferrer" className={StyleSheet.icon} url='http://twitter.com/login' />
+      <FaTwitterSquare className={StyleSheet.iconTwitter} />
       <h2 className={StyleSheet.columnHeader}>
         Automatically reclaim Twitter data
       </h2>
+      <p className={StyleSheet.subtext}>(Coming soon)</p>
       <Button
         className={scriptRunning ? StyleSheet.autoTwitterButtonDisabled : StyleSheet.autoTwitterButton }
-        disabled={scriptRunning}
-        onClick={startTwitterScript}
+        //disabled={scriptRunning}
+        //onClick={startTwitterScript}
+        onClick={() => {
+          alert('Automated data retrieval for Twitter will be coming soon')
+          history.push('/manualTwitter')
+        }}
       >
         Reclaim Twitter
       </Button>
