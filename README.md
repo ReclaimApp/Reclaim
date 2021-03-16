@@ -29,11 +29,11 @@ Download the latest release from the [release page](https://github.com/ReclaimAp
 
 ## Demo
 
-<video src='https://www.youtube.com/watch?v=FjeUIIvfBPI' />
+https://www.youtube.com/watch?v=FjeUIIvfBP
 
 ### Join our email list to get early access to features and updates as we expand Reclaim
 
-<a href='https://reclaim.social/' target="_blank" rel="noopener noreferrer" />
+https://reclaim.social/
 
 ## Contact
 
