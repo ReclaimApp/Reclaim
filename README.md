@@ -31,14 +31,15 @@ Download the latest release from the [release page](https://github.com/ReclaimAp
 
 https://www.youtube.com/watch?v=FjeUIIvfBP
 
-### Join our email list to get early access to features and updates as we expand Reclaim
+## Join our email list to get early access to features and updates as we expand Reclaim
 
 https://reclaim.social/
 
 ## Contact
 
 :bird: [Twitter: @ASeries_ofTubes](https://twitter.com/ASeries_ofTubes)
-:email:[austin@reclaim.social]
+
+:email: austin@reclaim.social
 
 ## Contribute
 We are still very early in the construction of this codebase but would really appreciate any feedback or contribution.
