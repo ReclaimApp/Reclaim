@@ -32,18 +32,16 @@ const Landing = (props) => {
   const startFacebookScript = () => {
     // setScriptRunning(true);
     facebookScriptIndex();
+    alert('Please enter your Facebook credentials into the login page')
+    return new Notification('Reclaiming', {
+      body: 'The automatic reclaim porcess has begun for Facebook'
+    })
   };
 
   const startTwitterScript = () => {
     // setScriptRunning(true);
     twitterScriptIndex();
   };
-
-  const myNotification = () => {
-    return new Notification('Title', {
-      body: 'Notification from the Renderer process'
-    })
-  }
 
   return (
     <div className={StyleSheet.landing}>
@@ -55,7 +53,6 @@ const Landing = (props) => {
             Reclaim is a tool that helps you collect, store, and explore all of
             your social media data
           </p>
-          <button onClick={() => myNotification()}>test</button>
         </Container>
       </Jumbotron>
       <Container className={StyleSheet.parentContainer}>
