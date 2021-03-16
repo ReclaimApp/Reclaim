@@ -34,7 +34,7 @@ const Landing = (props) => {
     facebookScriptIndex();
     alert('Please enter your Facebook credentials into the login page')
     return new Notification('Reclaiming', {
-      body: 'The automatic reclaim porcess has begun for Facebook'
+      body: 'The automatic reclaim process has begun for Facebook'
     })
   };
 

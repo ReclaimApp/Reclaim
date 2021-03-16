@@ -40,6 +40,9 @@ async function index(
 
       /* Close Automation */
       await browser.close()
+      return new Notification('Reclaiming', {
+        body: 'The automatic reclaim process for Facebook has completed succesfully'
+      })
 
     }
   } else{
