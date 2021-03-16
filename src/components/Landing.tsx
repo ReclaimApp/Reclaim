@@ -56,7 +56,7 @@ const Landing = (props) => {
         <AutomaticTwitterReclaim startTwitterScript={startTwitterScript} scriptRunning={scriptRunning} history={props.history} />
       </Container>
       <Container className={StyleSheet.footerContainer}>
-          <p className={StyleSheet.headerText}>
+          <p className={StyleSheet.footerText}>
             In case the automatic reclaim process above is not working these pages will walk you through the manual steps to reclaim your data and make it available in this app.
           </p>
         <Button onClick={() => props.history.push('/manualFacebook')} as={StyledButton}>Manual data download Facebook</Button>
