@@ -38,3 +38,10 @@ https://reclaim.social/
 ## Contact
 
 :bird: [Twitter: @ASeries_ofTubes](https://twitter.com/ASeries_ofTubes)
+
+## Contribute
+We are still very early in the construction of this codebase but would really appreciate any feedback or contribution.
+
+Below is the current app architecture
+
+<img src='./assets/appHeirarchy.jpg'/>
