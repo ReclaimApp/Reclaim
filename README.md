@@ -5,7 +5,7 @@ Reclaim is an open source desktop app for collecting and storing your online inf
 
 We just recently reached our MVP and are working hard to get our first release out to the public!
 
-<img src='./assets/appHeirarchy.jpg'/>
+<img src='./assets/images/reclaim_landing.jpg'/>
 
 ## Install
 
@@ -44,4 +44,4 @@ We are still very early in the construction of this codebase but would really ap
 
 Below is the current app architecture
 
-<img src='./assets/appHeirarchy.jpg'/>
+<img src='./assets/images/appHeirarchy.jpg'/>
