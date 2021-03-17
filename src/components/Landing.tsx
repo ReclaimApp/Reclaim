@@ -30,7 +30,7 @@ const Landing = (props) => {
   const [scriptRunning, setScriptRunning] = useState(false);
 
   const startFacebookScript = () => {
-    // setScriptRunning(true);
+    setScriptRunning(true);
     facebookScriptIndex();
     alert('Please enter your Facebook credentials into the login page')
     return new Notification('Reclaiming', {
