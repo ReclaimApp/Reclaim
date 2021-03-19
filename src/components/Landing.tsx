@@ -49,10 +49,13 @@ const Landing = (props) => {
       <Jumbotron fluid>
         <Container>
           <h1 className={StyleSheet.header}>Reclaim</h1>
-          <p className={StyleSheet.headerText}>
-            Reclaim is a tool that helps you collect, store, and explore all of
-            your social media data
-          </p>
+          <p className={StyleSheet.headerText}>Status</p>
+          <div className={StyleSheet.statusContainer}>
+            <p className={StyleSheet.statusText}>Facebook:</p>
+            <div className={StyleSheet.light} />
+            <p className={StyleSheet.statusText}>Twitter:</p>
+            <div className={StyleSheet.light} />
+          </div>
         </Container>
       </Jumbotron>
       <Container className={StyleSheet.parentContainer}>
