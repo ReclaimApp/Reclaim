@@ -2,12 +2,14 @@ import {
   GET_FB_INDEX_HTML,
   POPULATE_CATEGORIES,
   USER_FB_DATA,
+  GET_DATA_STATUS
 } from '../Actions';
 
 const initialState = {
   index: {},
   categories: [],
   userFbData: false,
+  dataStatus: ''
 };
 
 const FacebookReducer = function (state = initialState, action) {
@@ -20,6 +22,9 @@ const FacebookReducer = function (state = initialState, action) {
     }
     case USER_FB_DATA: {
       return { ...state, userFbData: true };
+    }
+    case GET_DATA_STATUS: {
+      return {...state, dataStatus: action.payload}
     }
     default:
       return state;

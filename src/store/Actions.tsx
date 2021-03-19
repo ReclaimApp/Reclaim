@@ -1,5 +1,6 @@
 export const GET_FB_INDEX_HTML = 'GET_FB_INDEX_HTML';
 export const POPULATE_CATEGORIES = 'POPULATE_CATEGORIES';
+export const GET_DATA_STATUS = 'GET_DATA_STATUS';
 export const USER_FB_DATA = 'USER_FB_DATA';
 
 // Twitter reducer
