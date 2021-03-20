@@ -1,3 +1,4 @@
+import React from 'react';
 import goToDownloadFile from './scripts/goToDownloadFile'
 import askForFile from'./scripts/askForFiles'
 import waitForFile from'./scripts/waitForFile'
@@ -47,7 +48,7 @@ async function index(
     }
   } else{
     // don't run the script when the user closes the headful login to capture their credentials
-    console.log("Didn't ran the script")
+    console.log("Didn't run the script")
   }
 
 

@@ -37,6 +37,8 @@ async function setUpBrower(props) {
 
     return {browser, context, isRunScript: true};
   }
-  else return {isRunScript: false}
+  else {
+    return {isRunScript: false}
+  }
 }
 export default setUpBrower;

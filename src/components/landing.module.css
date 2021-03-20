@@ -60,7 +60,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 30%;
+  width: 25%;
+  padding: 0.2%;
   margin: 0.5% auto;
   border: 1px solid white;
   border-radius: 10px;
@@ -73,6 +74,15 @@
   border: 2px solid black;
   border-radius: 50%;
   background: #7FFF00;
+}
+
+.redLight {
+  height: 10px;
+  width: 10px;
+  box-shadow: 0 0 20px #ffb5bb;
+  border: 2px solid black;
+  border-radius: 50%;
+  background: #DC143C;
 }
 
 .statusText {

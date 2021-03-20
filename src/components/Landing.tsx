@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useSelector} from "react-redux"
 import {
   Button,
   Container,
@@ -28,6 +29,8 @@ const StyledButton = Styled.button`
 
 const Landing = (props) => {
   const [scriptRunning, setScriptRunning] = useState(false);
+  const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
+  const userTwtrData = useSelector((state) => state.TwitterReducer.userTwtrData);
 
   const startFacebookScript = () => {
     setScriptRunning(true);
@@ -52,7 +55,7 @@ const Landing = (props) => {
           <p className={StyleSheet.headerText}>Status</p>
           <div className={StyleSheet.statusContainer}>
             <p className={StyleSheet.statusText}>Facebook:</p>
-            <div className={StyleSheet.light} />
+            <div className={userFbData ? StyleSheet.light : StyleSheet.redLight} />
             <p className={StyleSheet.statusText}>Twitter:</p>
             <div className={StyleSheet.light} />
           </div>

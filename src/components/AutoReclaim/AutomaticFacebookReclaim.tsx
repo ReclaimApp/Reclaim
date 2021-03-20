@@ -22,11 +22,11 @@ const StyledButton = Styled.button`
   }
 `;
 
-const reclaimSteps = () => {
+const reclaimSteps = (status) => {
   return (
     <div className={StyleSheet.stepsContainer}>
-      <p className={StyleSheet.stepsText}>Step: 1 / 9</p>
-      <p className={StyleSheet.stepsText}>Requesting data</p>
+      <p className={StyleSheet.stepsText}>Reclaiming</p>
+      <p className={StyleSheet.stepsText}>{status}</p>
       <Loader type="ThreeDots" color="#00BFFF" height={60} width={60} />
     </div>
   )
@@ -34,6 +34,7 @@ const reclaimSteps = () => {
 
 const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript }) => {
   const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
+  const dataStatus = useSelector(state => state.FacebookReducer.dataStatus);
   return (
     <Col className={StyleSheet.column}>
       <FaFacebook className={StyleSheet.iconFacebook} />
@@ -41,7 +42,7 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript 
         Automatically reclaim Facebook data
       </h2>
       {scriptRunning
-        ? reclaimSteps()
+        ? reclaimSteps(dataStatus)
         :
         <>
           <Button
@@ -51,8 +52,13 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript 
             >
             Reclaim Facebook
           </Button>
-          <Button as={StyledButton} onClick={() => history.push('/categories')}>
-          Explore Facebook
+          <Button
+            disabled={userFbData == false}
+            as={StyledButton}
+            style={userFbData ?{opacity: '1'} : {opacity: '0.8'}}
+            onClick={() => history.push('/categories')}
+          >
+            Explore Facebook
           </Button>
         </>
         }

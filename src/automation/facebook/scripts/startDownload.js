@@ -1,8 +1,12 @@
+import React from 'react'
 import reattachFrame from './reattachFrame';
 import reenterPassword from "./reenterPassword"
 import gotoDownloadOption from "./gotoDownloadOption"
+import {GET_DATA_STATUS} from "../../../store/Actions";
+import {useDispatch} from 'react-redux';
 
 const startDownload = async (props) => {
+  const dispatch = useDispatch();
   const {page, absoluteCredentialsPath} = props
 
   /* go to download option */
@@ -14,6 +18,7 @@ const startDownload = async (props) => {
   if(isDownloadButton){
     // click download button
     console.log('Starting download');
+    dispatch({type: GET_DATA_STATUS, payload: "Downloading"})
     let download
     try {
       page.on("download", downloadEvent => {
@@ -40,6 +45,7 @@ const startDownload = async (props) => {
 
         // facebook  asked to reenter password
         console.log('Asked to reenter password');
+        dispatch({type: GET_DATA_STATUS, payload: "Must re-enter password on Facebook browser page"})
 
         // let user enter their password then on headfull then rerun the download script on headless
         console.log("going to reenter password")
@@ -57,6 +63,7 @@ const startDownload = async (props) => {
 
         //download again
         console.log("starting donwloading the file after reentering the password")
+        dispatch({type: GET_DATA_STATUS, payload: "Downloading"})
         // await doc.click('button[type=submit]')
         [download] = await Promise.all([
           page.waitForEvent('download'),
@@ -66,6 +73,7 @@ const startDownload = async (props) => {
     } catch (error) {
 
       console.log("Download fail")
+      dispatch({type: GET_DATA_STATUS, payload: "Download failed"})
       console.log(error)
     }
 
