@@ -25,7 +25,7 @@ const StyledButton = Styled.button`
 const reclaimSteps = (status) => {
   return (
     <div className={StyleSheet.stepsContainer}>
-      <p className={StyleSheet.stepsText}>Reclaiming</p>
+      <p className={StyleSheet.stepsText}>Progress:</p>
       <p className={StyleSheet.stepsText}>{status}</p>
       <Loader type="ThreeDots" color="#00BFFF" height={60} width={60} />
     </div>

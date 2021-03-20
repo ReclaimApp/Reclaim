@@ -9,7 +9,7 @@ const initialState = {
   index: {},
   categories: [],
   userFbData: false,
-  dataStatus: ''
+  dataStatus: 'Starting reclaim process, please enter your Facebook credentials when the window pops up.'
 };
 
 const FacebookReducer = function (state = initialState, action) {
@@ -24,6 +24,7 @@ const FacebookReducer = function (state = initialState, action) {
       return { ...state, userFbData: true };
     }
     case GET_DATA_STATUS: {
+      console.log(action.payload)
       return {...state, dataStatus: action.payload}
     }
     default:
