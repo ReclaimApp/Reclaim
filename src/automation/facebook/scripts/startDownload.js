@@ -30,15 +30,11 @@ const startDownload = async (props) => {
       }
 
       if(isDownloading){
-        debugger
-
         // capture the download event
         // download = await page.waitForEvent('download')
         console.log({download})
       }
       else{
-        debugger
-
         // facebook  asked to reenter password
         console.log('Asked to reenter password');
 

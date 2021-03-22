@@ -15,7 +15,6 @@ async function createFile(doc, page) {
   await goToDownloadOption(page);
 
   const isDownloadButton = (await doc.$('button[type=submit]')) ? true : false;
-  debugger;
   if (isDownloadButton) {
     // Now go back to the previous tab
     const avaliableCopiesTab = 'li:first-child';

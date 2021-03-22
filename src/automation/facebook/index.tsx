@@ -40,7 +40,6 @@ async function index(
       const {
         isNeedtoWaitForFile,
       }: { isNeedtoWaitForFile: boolean } = await askForFile(dataDoc, page);
-      debugger;
       if (isNeedtoWaitForFile) {
         // /* Wait for files */
         store.dispatch({
@@ -50,14 +49,12 @@ async function index(
         });
         await waitForFile(page, dataDoc);
       }
-      debugger;
       /* Download files */
       // notify user that the download option is starting
       store.dispatch({
         type: GET_DATA_STATUS,
         payload: 'Downloading your data file',
       });
-
       // start downlading
       await downloadFile({
         page,
