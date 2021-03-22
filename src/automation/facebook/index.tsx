@@ -37,8 +37,10 @@ async function index(
         type: GET_DATA_STATUS,
         payload: 'Asking Facebook to create data file',
       });
-      const { isNeedtoWaitForFile } = await askForFile(dataDoc, page);
-
+      const {
+        isNeedtoWaitForFile,
+      }: { isNeedtoWaitForFile: boolean } = await askForFile(dataDoc, page);
+      debugger;
       if (isNeedtoWaitForFile) {
         // /* Wait for files */
         store.dispatch({
@@ -48,7 +50,7 @@ async function index(
         });
         await waitForFile(page, dataDoc);
       }
-
+      debugger;
       /* Download files */
       // notify user that the download option is starting
       store.dispatch({
