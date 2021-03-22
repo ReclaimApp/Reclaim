@@ -11,19 +11,20 @@ async function downloadFile(props) {
   /* start download */
   const {doc, download, isDownloadStarted} = await startDownload({page, absoluteCredentialsPath})
   console.log({doc, download, isDownloadStarted})
+  /* start report for downloading file */
+  //todo: Console log does not work on productions. need to something else like notification or GUI visual.
+  const fileName = await download.suggestedFilename();
+  const fileNamePath = normalize(`${__dirname}/user_data/${fileName}`)
+  await reportDownloadFile({page, doc, download, fileName, browser})
 
   if(isDownloadStarted){
-    /* download file */
+    /*wait for file to completly download */
     await download.path();
-    const fileName = await download.suggestedFilename();
-    const fileNamePath = normalize(`${__dirname}/user_data/${fileName}`)
 
     //Make file name readable
     debugger
     const facebookFile = await download.saveAs(fileNamePath);
-    /* start report for downloading file */
-    //todo: Console log does not work on productions. need to something else like notification or GUI visual.
-    await reportDownloadFile({page, doc, download, fileName, browser})
+
 
     // delete the criptic file name
     await download.delete();
