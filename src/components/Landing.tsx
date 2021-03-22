@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useSelector} from "react-redux"
 import {
   Button,
@@ -62,7 +62,7 @@ const Landing = (props) => {
         </Container>
       </Jumbotron>
       <Container className={StyleSheet.parentContainer}>
-        <AutomaticFacebookReclaim startFacebookScript={startFacebookScript} scriptRunning={scriptRunning} history={props.history} />
+        <AutomaticFacebookReclaim setScriptRunning={setScriptRunning} startFacebookScript={startFacebookScript} scriptRunning={scriptRunning} history={props.history} />
         <AutomaticTwitterReclaim startTwitterScript={startTwitterScript} scriptRunning={scriptRunning} history={props.history} />
       </Container>
       <Container className={StyleSheet.footerContainer}>

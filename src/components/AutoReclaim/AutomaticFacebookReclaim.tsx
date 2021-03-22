@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Col } from 'react-bootstrap';
 import { FaFacebook } from 'react-icons/fa';
+import FacebookReclaimDisplay from './FacebookReclaimDisplay';
 import Styled from 'styled-components';
 import StyleSheet from './autoReclaim.module.css';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
 
 const StyledButton = Styled.button`
   width: 70%;
@@ -22,19 +21,16 @@ const StyledButton = Styled.button`
   }
 `;
 
-const reclaimSteps = (status) => {
-  return (
-    <div className={StyleSheet.stepsContainer}>
-      <p className={StyleSheet.stepsText}>Progress:</p>
-      <p className={StyleSheet.stepsText}>{status}</p>
-      <Loader type="ThreeDots" color="#00BFFF" height={60} width={60} />
-    </div>
-  )
-}
-
-const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript }) => {
+const AutomaticFacebookReclaim = ({ history, scriptRunning, setScriptRunning, startFacebookScript }) => {
   const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
   const dataStatus = useSelector(state => state.FacebookReducer.dataStatus);
+
+  useEffect(() => {
+    if (dataStatus == 'The automatic reclaim process for Facebook has completed succesfully') {
+      setScriptRunning(false)
+    }
+  }, [dataStatus])
+
   return (
     <Col className={StyleSheet.column}>
       <FaFacebook className={StyleSheet.iconFacebook} />
@@ -42,7 +38,7 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript 
         Automatically reclaim Facebook data
       </h2>
       {scriptRunning
-        ? reclaimSteps(dataStatus)
+        ? <FacebookReclaimDisplay status={dataStatus} />
         :
         <>
           <Button
@@ -55,7 +51,7 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, startFacebookScript 
           <Button
             disabled={userFbData == false}
             as={StyledButton}
-            style={userFbData ?{opacity: '1'} : {opacity: '0.8'}}
+            style={userFbData ?{opacity: '1'} : {opacity: '0.6'}}
             onClick={() => history.push('/categories')}
           >
             Explore Facebook

@@ -5,11 +5,8 @@ import deleteZipFile from "./deleteZipFile";
 import reportDownloadFile from "./reportDownloadFile"
 import startDownload from "./startDownload"
 import { normalize } from 'path'
-import {GET_DATA_STATUS} from "../../../store/Actions";
-import {useDispatch} from 'react-redux';
 
 async function downloadFile(props) {
-  const dispatch = useDispatch();
   const {page, documentsPath, absoluteCredentialsPath, browser} = props
 
   /* start download */
@@ -35,13 +32,13 @@ async function downloadFile(props) {
     /* unzip the folder */
     try {
       // Update data status
-      dispatch({type: GET_DATA_STATUS, payload: "Your data is being unzipped"})
+      // dispatch({type: GET_DATA_STATUS, payload: "Your data is being unzipped"})
       await extract(fileNamePath, { dir: `${documentsPath}/your_data/facebook` })
       console.log('Extraction complete')
     } catch (err) {
       // could not unzip
       console.log("Could not handle unzipping")
-      dispatch({type: GET_DATA_STATUS, payload: "Error unzipping"})
+      // dispatch({type: GET_DATA_STATUS, payload: "Error unzipping"})
       console.log(err)
     }
 
