@@ -1,3 +1,4 @@
+import React from 'react';
 import reattachFrame from './reattachFrame';
 
 async function waitForFile(page, doc) {
@@ -35,7 +36,6 @@ async function waitForFile(page, doc) {
   if (isWatingProcess === false) {
     console.log('There is no file to wait for');
   }
-
   console.log('finish waiting for data');
 }
 

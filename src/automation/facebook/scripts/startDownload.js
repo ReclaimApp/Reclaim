@@ -1,6 +1,7 @@
+import React from 'react'
 import reattachFrame from './reattachFrame';
 import reenterPassword from "./reenterPassword"
-import gotoDownloadOption from "./gotoDownloadOption"
+import gotoDownloadOption from "./goToDownloadOption"
 
 const startDownload = async (props) => {
   const {page, absoluteCredentialsPath} = props
@@ -29,15 +30,11 @@ const startDownload = async (props) => {
       }
 
       if(isDownloading){
-        debugger
-
         // capture the download event
         // download = await page.waitForEvent('download')
         console.log({download})
       }
       else{
-        debugger
-
         // facebook  asked to reenter password
         console.log('Asked to reenter password');
 

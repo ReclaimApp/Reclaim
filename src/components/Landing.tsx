@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import {
-  Button,
-  Container,
-  Jumbotron,
-} from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Button, Container, Jumbotron } from 'react-bootstrap';
 import Styled from 'styled-components';
 import facebookScriptIndex from '../automation/facebook/index';
 import twitterScriptIndex from '../automation/twitter/index';
@@ -28,10 +25,17 @@ const StyledButton = Styled.button`
 
 const Landing = (props) => {
   const [scriptRunning, setScriptRunning] = useState(false);
+  const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
+  const userTwtrData = useSelector(
+    (state) => state.TwitterReducer.userTwtrData
+  );
 
   const startFacebookScript = () => {
-    // setScriptRunning(true);
+    setScriptRunning(true);
     facebookScriptIndex();
+    return new Notification('Reclaiming', {
+      body: 'The automatic reclaim process has begun for Facebook',
+    });
   };
 
   const startTwitterScript = () => {
@@ -41,26 +45,51 @@ const Landing = (props) => {
 
   return (
     <div className={StyleSheet.landing}>
-
       <Jumbotron fluid>
         <Container>
           <h1 className={StyleSheet.header}>Reclaim</h1>
-          <p className={StyleSheet.headerText}>
-            Reclaim is a tool that helps you collect, store, and explore all of
-            your social media data
-          </p>
+          <p className={StyleSheet.headerText}>Status</p>
+          <div className={StyleSheet.statusContainer}>
+            <p className={StyleSheet.statusText}>Facebook:</p>
+            <div
+              className={userFbData ? StyleSheet.light : StyleSheet.redLight}
+            />
+            <p className={StyleSheet.statusText}>Twitter:</p>
+            <div className={StyleSheet.light} />
+          </div>
         </Container>
       </Jumbotron>
       <Container className={StyleSheet.parentContainer}>
-        <AutomaticFacebookReclaim startFacebookScript={startFacebookScript} scriptRunning={scriptRunning} history={props.history} />
-        <AutomaticTwitterReclaim startTwitterScript={startTwitterScript} scriptRunning={scriptRunning} history={props.history} />
+        <AutomaticFacebookReclaim
+          setScriptRunning={setScriptRunning}
+          startFacebookScript={startFacebookScript}
+          scriptRunning={scriptRunning}
+          history={props.history}
+        />
+        <AutomaticTwitterReclaim
+          startTwitterScript={startTwitterScript}
+          scriptRunning={scriptRunning}
+          history={props.history}
+        />
       </Container>
       <Container className={StyleSheet.footerContainer}>
-          <p className={StyleSheet.footerText}>
-            In case the automatic reclaim process above is not working these pages will walk you through the manual steps to reclaim your data and make it available in this app.
-          </p>
-        <Button onClick={() => props.history.push('/manualFacebook')} as={StyledButton}>Manual data download Facebook</Button>
-        <Button onClick={() => props.history.push('/manualTwitter')} as={StyledButton}>Manual data download Twitter</Button>
+        <p className={StyleSheet.footerText}>
+          In case the automatic reclaim process above is not working these pages
+          will walk you through the manual steps to reclaim your data and make
+          it available in this app.
+        </p>
+        <Button
+          onClick={() => props.history.push('/manualFacebook')}
+          as={StyledButton}
+        >
+          Manual data download Facebook
+        </Button>
+        <Button
+          onClick={() => props.history.push('/manualTwitter')}
+          as={StyledButton}
+        >
+          Manual data download Twitter
+        </Button>
       </Container>
     </div>
   );

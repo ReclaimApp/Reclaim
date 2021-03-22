@@ -21,28 +21,37 @@ const UserDataRetrieval = () => {
 
   if (userDataCheck) {
     // Facebook retrieval
+    // First we initialize fbDataCheck which looks in the Documents directory and filters for folders named 'Facebook'
     const fbDataCheck = fs
       .readdirSync(`${documentsPath}/your_data`)
       .filter((doc) => doc === 'facebook')[0];
+    // If fbDataCheck is true we can move on to parse it
     if (fbDataCheck) {
+      // Map through the facebook folder
       const fbData = fs.readdirSync(`${documentsPath}/your_data/facebook`);
       fbData.map((directory) => {
         if (directory.includes('.html')) {
+          // The only .html file in this directory will be index
           const index = fs.readFileSync(
             `${documentsPath}/your_data/facebook/${directory}`,
             'utf8'
           );
+          // Now we dispatch the html as a string to our Redux store
           dispatch({ type: GET_FB_INDEX_HTML, payload: index });
         } else {
+          // Everything besides index.html is a subFolder we will need to parse
           const subFolder = fs.readdirSync(
             `${documentsPath}/your_data/facebook/${directory}`
           );
+          // Now we map through the sub folder
           subFolder.map((file) => {
+            // Now any of the .html files will be the actual user data
             if (file.includes('.html')) {
               const fileHtml = fs.readFileSync(
                 `${documentsPath}/your_data/facebook/${directory}/${file}`,
                 'utf8'
-              );
+                );
+              // We need to dispatch each html string with the appropriate file name and parent folder name
               dispatch({
                 type: POPULATE_CATEGORIES,
                 payload: {
