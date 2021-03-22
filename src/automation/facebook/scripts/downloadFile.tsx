@@ -25,9 +25,6 @@ async function downloadFile(props) {
     //Make file name readable
     debugger;
     const facebookFile = await download.saveAs(fileNamePath);
-    /* start report for downloading file */
-    //todo: Console log does not work on productions. need to something else like notification or GUI visual.
-    await reportDownloadFile({ page, doc, download, fileName, browser });
 
     // delete the criptic file name
     await download.delete();
