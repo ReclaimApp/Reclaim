@@ -4,7 +4,6 @@ import reenterPassword from "./reenterPassword"
 import gotoDownloadOption from "./goToDownloadOption"
 
 const startDownload = async (props) => {
-  const dispatch = useDispatch();
   const {page, absoluteCredentialsPath} = props
 
   /* go to download option */
