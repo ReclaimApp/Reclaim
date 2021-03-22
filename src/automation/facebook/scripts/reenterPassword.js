@@ -1,5 +1,5 @@
 import startHeadfullBrowser from "./startHeadfullBrowser"
-import gotoDownloadOption from "./gotoDownloadOption"
+import gotoDownloadOption from "./goToDownloadOption"
 const reenterPassword = async (props) => {
   console.log("starting the reenterpassword manual process")
   const {pageUrl, absoluteCredentialsPath} = props

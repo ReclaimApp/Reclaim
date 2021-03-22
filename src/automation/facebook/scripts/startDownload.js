@@ -1,7 +1,7 @@
 import React from 'react'
 import reattachFrame from './reattachFrame';
 import reenterPassword from "./reenterPassword"
-import gotoDownloadOption from "./gotoDownloadOption"
+import gotoDownloadOption from "./goToDownloadOption"
 
 const startDownload = async (props) => {
   const dispatch = useDispatch();
