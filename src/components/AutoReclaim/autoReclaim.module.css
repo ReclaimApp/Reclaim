@@ -7,20 +7,21 @@
   margin-top: 2%;
   border: 2px solid white;
   border-radius: 5px;
-  background: linear-gradient(to bottom right, oldlace, #6e54c4);
+  background: linear-gradient( #6e54c4, #FAF9F9);
 }
 
 .columnHeader {
-  font-size: 1.3rem;
+  font-size: 3rem;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+  color: #FAF9F9;
 }
 
 .autoFbButton {
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -37,7 +38,7 @@
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -51,7 +52,7 @@
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -68,7 +69,7 @@
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -92,6 +93,8 @@
   font-size: 4rem;
   background: white;
   color: rgb(29, 161, 242);
+  border-radius: 50%;
+  padding: .3rem;
 }
 
 .subtext {

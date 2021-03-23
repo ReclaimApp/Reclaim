@@ -4,19 +4,21 @@ import waitForFile from './scripts/waitForFile';
 import downloadFile from './scripts/downloadFile';
 import setUpBrower from './scripts/setUpBrowser';
 import { normalize } from 'path';
-import FacebookReclaimDisplay from '../../components/AutoReclaim/FacebookReclaimDisplay';
 import store from '../../store/store';
 import { GET_DATA_STATUS } from '../../store/Actions';
 
 async function index(
-  downloadPath = normalize(`${__dirname}/user_data/facebook`)
+  downloadPath: string = normalize(`${__dirname}/user_data/facebook`)
 ) {
-  const absoluteCredentialsPath = normalize(
+  const absoluteCredentialsPath: string = normalize(
     `${__dirname}/user_data/credentials/facebookCredentials.js`
   );
-  const documentsPath = window.process.argv.slice(-1)[0];
+  const documentsPath: string = window.process.argv.slice(-1)[0];
 
-  /* start browser */
+  /* start browser
+  { browser: ChromiumBrowser | undefined, context: ChromiumBrowserContext | undefined, isRunScript: boolean }
+
+  */
   // if the browser cannot start then don't run the script
   const { browser, context, isRunScript: isNoRunScript } = await setUpBrower({
     downloadPath,

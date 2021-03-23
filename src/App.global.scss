@@ -2,6 +2,7 @@
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
+@import-normalize; /* bring in normalize.css styles */
 html {
   font-size: 10px;
   box-sizing: border-box;
@@ -12,4 +13,8 @@ html {
 *:after {
   font-size: inherit;
   box-sizing: inherit;
+}
+
+button{
+  font-size: 3rem;
 }

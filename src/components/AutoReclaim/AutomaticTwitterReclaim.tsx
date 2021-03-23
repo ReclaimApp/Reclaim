@@ -9,7 +9,7 @@ const StyledButton = Styled.button`
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
   background-color: #4b3f72;
   color: #fff;
   border: 1px solid oldlace;
@@ -24,7 +24,7 @@ const StyledButtonDisabled = Styled.button`
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
   background-color: #4b3f72;
   color: #fff;
   border: 1px solid oldlace;
@@ -32,7 +32,11 @@ const StyledButtonDisabled = Styled.button`
   opacity: 0.6;
 `;
 
-const AutomaticTwitterReclaim = ({ history, scriptRunning, startTwitterScript }) => {
+const AutomaticTwitterReclaim = ({
+  history,
+  scriptRunning,
+  startTwitterScript,
+}) => {
   const userTwtrData = useSelector(
     (state) => state.TwitterReducer.userTwtrData
   );
@@ -44,12 +48,16 @@ const AutomaticTwitterReclaim = ({ history, scriptRunning, startTwitterScript })
       </h2>
       <p className={StyleSheet.subtext}>(Coming soon)</p>
       <Button
-        className={scriptRunning ? StyleSheet.autoTwitterButtonDisabled : StyleSheet.autoTwitterButton }
+        className={
+          scriptRunning
+            ? StyleSheet.autoTwitterButtonDisabled
+            : StyleSheet.autoTwitterButton
+        }
         //disabled={scriptRunning}
         //onClick={startTwitterScript}
         onClick={() => {
-          alert('Automated data retrieval for Twitter will be coming soon')
-          history.push('/manualTwitter')
+          alert('Automated data retrieval for Twitter will be coming soon');
+          history.push('/manualTwitter');
         }}
       >
         Reclaim Twitter

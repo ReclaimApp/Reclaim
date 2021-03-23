@@ -11,11 +11,11 @@ import StyleSheet from './landing.module.css';
 const StyledButton = Styled.button`
   width: 40%;
   margin: 1% auto;
-  padding: 1%;
-  font-size: 1.3rem;
+  padding: 1.5%;
+  /* font-size: 1.3rem; */
   background-color: #4b3f72;
   color: #fff;
-  border: 1px solid oldlace;
+  border: .01rem solid oldlace;
   border-radius: 6px;
   cursor: pointer;
   &:hover {
@@ -47,7 +47,6 @@ const Landing = (props) => {
     <div className={StyleSheet.landing}>
       <Jumbotron fluid>
         <Container>
-          <h1 className={StyleSheet.header}>Reclaim</h1>
           <p className={StyleSheet.headerText}>Status</p>
           <div className={StyleSheet.statusContainer}>
             <p className={StyleSheet.statusText}>Facebook:</p>
