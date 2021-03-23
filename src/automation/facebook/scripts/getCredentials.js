@@ -3,9 +3,6 @@ import login from './login';
 import getCredentialFile from "../../helperFunctions/getCredentialFile"
 
 const getCredentials = async(absoluteCredentialsPath) => {
-    /* paths to files */
-    const relativeCredetialsPath = "../../user_data/credentials/facebookCredentials"
-    console.log({credentialsPath: absoluteCredentialsPath})
 
     /* Dynamically import the credentials file*/
     let credentialsFile

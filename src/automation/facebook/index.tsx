@@ -8,11 +8,9 @@ import store from '../../store/store';
 import { GET_DATA_STATUS } from '../../store/Actions';
 
 async function index(
-  downloadPath = normalize(`${__dirname}/user_data/facebook`)
+  downloadPath = window.process.argv.slice(-2)[0]
 ) {
-  const absoluteCredentialsPath = normalize(
-    `${__dirname}/user_data/credentials/facebookCredentials.js`
-  );
+  const absoluteCredentialsPath = `${downloadPath}/facebookCredentials.js`
   const documentsPath = window.process.argv.slice(-1)[0];
 
   /* start browser */
@@ -60,6 +58,8 @@ async function index(
         documentsPath,
         absoluteCredentialsPath,
         browser,
+        downloadPath,
+        documentsPath
       });
 
       /* Close Automation */
@@ -79,10 +79,6 @@ async function index(
       store.dispatch({
         type: GET_DATA_STATUS,
         payload:
-          'The automatic reclaim process for Facebook has completed succesfully',
-      });
-      return new Notification('Reclaiming', {
-        body:
           'The automatic reclaim process for Facebook has completed succesfully',
       });
     }

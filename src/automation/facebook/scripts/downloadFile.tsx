@@ -7,7 +7,7 @@ import startDownload from './startDownload';
 import { normalize } from 'path';
 
 async function downloadFile(props) {
-  const { page, documentsPath, absoluteCredentialsPath, browser } = props;
+  const { page, documentsPath, absoluteCredentialsPath, browser, downloadPath } = props;
   debugger;
   /* start download */
   const { doc, download, isDownloadStarted } = await startDownload({
@@ -20,7 +20,7 @@ async function downloadFile(props) {
     /* download file */
     await download.path();
     const fileName = await download.suggestedFilename();
-    const fileNamePath = normalize(`${__dirname}/user_data/${fileName}`);
+    const fileNamePath = normalize(`${downloadPath}/${fileName}`);
 
     //Make file name readable
     debugger;
@@ -48,18 +48,13 @@ async function downloadFile(props) {
     try {
       console.log('Going to delete zip file');
       console.log(await facebookFile);
-      deleteZipFile();
+      deleteZipFile(downloadPath);
     } catch (error) {
       console.log('Could not delete zip file');
       console.log(error);
     }
     /* close browser */
     console.log('finished download');
-    dispatch({
-      type: GET_DATA_STATUS,
-      payload:
-        'Finished download and unzip. Your data is in the Documents directory on this computer!',
-    });
   } else console.log("Donwload didn't start");
 }
 

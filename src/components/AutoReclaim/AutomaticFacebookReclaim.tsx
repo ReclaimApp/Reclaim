@@ -34,6 +34,10 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, setScriptRunning, st
       setTimeout(() => {
         window.location.reload()
       }, 2000)
+      return new Notification('Reclaiming', {
+        body:
+          'The automatic reclaim process for Facebook has completed succesfully',
+      });
     }
   }, [dataStatus])
 

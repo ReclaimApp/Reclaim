@@ -53,6 +53,7 @@ const installExtensions = async () => {
 
 const createWindow = async () => {
   const documentsPath = app.getPath('documents');
+  const userDataPath = app.getPath('userData');
   if (
     process.env.NODE_ENV === 'development' ||
     process.env.DEBUG_PROD === 'true'
@@ -76,7 +77,7 @@ const createWindow = async () => {
     backgroundColor: '#212529',
     webPreferences: {
       nodeIntegration: true,
-      additionalArguments: [documentsPath],
+      additionalArguments: [userDataPath, documentsPath],
     },
   });
   mainWindow.maximize();
