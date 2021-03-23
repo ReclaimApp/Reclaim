@@ -28,6 +28,9 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, setScriptRunning, st
   useEffect(() => {
     if (dataStatus == 'The automatic reclaim process for Facebook has completed succesfully') {
       setScriptRunning(false)
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
     }
   }, [dataStatus])
 

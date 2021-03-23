@@ -4,7 +4,6 @@ import waitForFile from './scripts/waitForFile';
 import downloadFile from './scripts/downloadFile';
 import setUpBrower from './scripts/setUpBrowser';
 import { normalize } from 'path';
-import FacebookReclaimDisplay from '../../components/AutoReclaim/FacebookReclaimDisplay';
 import store from '../../store/store';
 import { GET_DATA_STATUS } from '../../store/Actions';
 
@@ -76,6 +75,7 @@ async function index(
 
       /* Close Automation */
       await browser.close();
+      // Tell the user the reclaim process is complete through the status and native notification
       store.dispatch({
         type: GET_DATA_STATUS,
         payload:

@@ -4,8 +4,9 @@ import startHeadfullBrowser from "./startHeadfullBrowser"
 
 async function login(credentialsPath) {
   /* start browser */
+  console.log('line 7 login')
   const {browser, context, page} = await startHeadfullBrowser()
-
+  console.log('line 9 login')
   /* go to facebook login */
   await page.goto('https://www.facebook.com/login');
   console.log("going to wait for request")

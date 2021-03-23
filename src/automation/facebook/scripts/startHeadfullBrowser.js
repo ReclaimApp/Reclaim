@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import getCredentials from "./getCredentials"
 const startHeadfullBrowser = async (props = {}) => {
-  console.log(props)
+  console.log({props})
   const {isRunWithCredentials, absoluteCredentialsPath} = props
 
   const browser = await chromium.launch({

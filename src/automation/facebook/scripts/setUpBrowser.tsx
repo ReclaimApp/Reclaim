@@ -8,9 +8,10 @@ async function setUpBrower(props) {
   // get user account access
   const storageState = await getCredentials(absoluteCredentialsPath)
   console.log({storageState})
-
-  const isThereCrendtialsFile = storageState === null ? false : true
-
+  console.log(storageState === null)
+  console.log(storageState == null)
+  const isThereCrendtialsFile = storageState == null ? false : true
+  console.log(isThereCrendtialsFile)
   if(isThereCrendtialsFile){
     // run the scrip if there is login file/cookies
     /* start headless browser with credentials */

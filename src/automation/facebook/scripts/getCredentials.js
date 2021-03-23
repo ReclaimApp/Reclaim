@@ -25,9 +25,10 @@ const getCredentials = async(absoluteCredentialsPath) => {
     const isNoCredentials = credentialsFile ? false : true
 
     console.log({isNoCredentials})
-    debugger
+    console.log('line 28 getCredentials')
     if(isNoCredentials) {
       // capture user cookies and save it into their facebook credential file
+      console.log('line 31 getCredentials')
       await login(absoluteCredentialsPath);
 
       // save the credential file data
