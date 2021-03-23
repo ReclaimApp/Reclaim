@@ -55,7 +55,9 @@ const Landing = (props) => {
               className={userFbData ? StyleSheet.light : StyleSheet.redLight}
             />
             <p className={StyleSheet.statusText}>Twitter:</p>
-            <div className={StyleSheet.light} />
+            <div
+              className={userTwtrData ? StyleSheet.light : StyleSheet.redLight}
+            />
           </div>
         </Container>
       </Jumbotron>
