@@ -30,7 +30,7 @@ const AutomaticFacebookReclaim = ({ history, scriptRunning, setScriptRunning, st
       setScriptRunning(false)
       setTimeout(() => {
         window.location.reload()
-      }, 1000)
+      }, 2000)
     }
   }, [dataStatus])
 

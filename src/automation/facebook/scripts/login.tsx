@@ -1,16 +1,16 @@
 require('dotenv').config();
 import writeDocument from "../../helperFunctions/writeFile"
 import startHeadfullBrowser from "./startHeadfullBrowser"
+import store from '../../../store/store';
+import { GET_DATA_STATUS } from '../.././../store/Actions';
 
 async function login(credentialsPath) {
   /* start browser */
-  console.log('line 7 login')
   const {browser, context, page} = await startHeadfullBrowser()
-  console.log('line 9 login')
   /* go to facebook login */
   await page.goto('https://www.facebook.com/login');
   console.log("going to wait for request")
-
+  store.dispatch({type: GET_DATA_STATUS, payload: "Please enter your Facebook credentials in the browser"})
   try {
     //wait until user cloes browser
     await page.waitForNavigation({timeout: 0,url:"https://www.facebook.com/",
