@@ -11,7 +11,7 @@
 }
 
 .columnHeader {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
@@ -20,7 +20,7 @@
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -37,7 +37,7 @@
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -51,7 +51,7 @@
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -68,7 +68,7 @@
   width: 70%;
   margin: 3% auto;
   padding: 3%;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 600;
   background: royalBlue;
   color: #fff;
@@ -112,8 +112,32 @@
 
 .stepsText {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   width: 95%;
   margin: 1% auto;
   text-align: center;
+}
+
+@media (min-width: 1600px) and (min-height:900px) {
+  .columnHeader {
+    font-size: 2.5rem;
+  }
+  .iconFacebook {
+    font-size: 5rem;
+  }
+  .iconTwitter {
+    font-size: 5rem;
+  }
+  .autoTwitterButton {
+    font-size: 2.5rem;
+  }
+  .autoFbButton {
+    font-size: 2.5rem;
+  }
+  .autoFbButtonDisabled {
+    font-size: 2.5rem;
+  }
+  .autoTwitterButtonDisabled {
+    font-size: 2.5rem;
+  }
 }

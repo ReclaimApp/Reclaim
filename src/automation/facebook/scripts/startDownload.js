@@ -2,6 +2,8 @@ import React from 'react'
 import reattachFrame from './reattachFrame';
 import reenterPassword from "./reenterPassword"
 import gotoDownloadOption from "./goToDownloadOption"
+import store from '../../../store/store';
+import { GET_DATA_STATUS } from '../../../store/Actions';
 
 const startDownload = async (props) => {
   const {page, absoluteCredentialsPath} = props
@@ -40,6 +42,7 @@ const startDownload = async (props) => {
 
         // let user enter their password then on headfull then rerun the download script on headless
         console.log("going to reenter password")
+        store.dispatch({type: GET_DATA_STATUS, payload: "Facebook is requiring you to reenter your password again in the browser"})
         const pageUrl = await page.url()
         await reenterPassword({pageUrl, absoluteCredentialsPath})
 

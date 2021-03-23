@@ -17,6 +17,9 @@ const StyledButton = Styled.button`
   &:hover {
     opacity: 0.8;
   }
+  @media (min-width: 1600px) and (min-height: 900px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const HomeButton = Styled.button`
@@ -30,6 +33,9 @@ const HomeButton = Styled.button`
   cursor: pointer;
   &:hover {
     opacity: 0.8;
+  }
+  @media (min-width: 1600px) and (min-height: 900px) {
+    font-size: 1.5rem;
   }
 `;
 

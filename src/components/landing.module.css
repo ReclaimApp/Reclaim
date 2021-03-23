@@ -11,16 +11,17 @@
 }
 
 .header {
-  font-size: 3rem;
+  font-size: 3.2rem;
   text-align: center;
   font-family: 'Audiowide';
   color: white;
   margin-bottom: 1%;
+  margin-top: 0.5%;
 }
 
 .headerText {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: white;
   font-weight: 600;
   font-family: 'Blinker', sans-serif;
@@ -50,7 +51,7 @@
 
 .footerText {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: black;
   font-weight: 600;
 }
@@ -88,4 +89,19 @@
 .statusText {
   color: white;
   font-weight: 600;
+}
+
+@media (min-width: 1600px) and (min-height:900px) {
+  .footerText {
+    font-size: 2.3rem;
+  }
+  .headerText {
+    font-size: 2rem;
+  }
+  .header {
+    font-size: 4.5rem;
+  }
+  .statusText {
+    font-size: 1.2rem;
+  }
 }

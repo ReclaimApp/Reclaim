@@ -12,7 +12,7 @@ const StyledButton = Styled.button`
   width: 40%;
   margin: 1% auto;
   padding: 1%;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   background-color: #4b3f72;
   color: #fff;
   border: 1px solid oldlace;
@@ -20,6 +20,9 @@ const StyledButton = Styled.button`
   cursor: pointer;
   &:hover {
     opacity: 0.8;
+  }
+  @media (min-width: 1600px) and (min-height: 900px) {
+    font-size: 2.5rem;
   }
 `;
 
@@ -55,7 +58,9 @@ const Landing = (props) => {
               className={userFbData ? StyleSheet.light : StyleSheet.redLight}
             />
             <p className={StyleSheet.statusText}>Twitter:</p>
-            <div className={StyleSheet.light} />
+            <div
+              className={userTwtrData ? StyleSheet.light : StyleSheet.redLight}
+            />
           </div>
         </Container>
       </Jumbotron>
