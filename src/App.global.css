@@ -5,7 +5,7 @@
 html {
   font-size: 10px;
   box-sizing: border-box;
-  background-color: #212529;
+  background: rgb(40, 44, 52);
 }
 *,
 *:before,
