@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Landing from './components/Landing';
+import Landing from './components/landing/Landing.tsx';
 import FbCategoryRouter from './components/Routing/FbCategoryRouter';
 import Categories from './components/Rendering/CategoriesDisplay';
 import UserDataRetrieval from './utils/UserDataRetrieval';
