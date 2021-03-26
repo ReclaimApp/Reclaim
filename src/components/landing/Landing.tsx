@@ -46,6 +46,8 @@ const Landing = (props) => {
   return (
     <div className={StyleSheet.landing}>
       <Jumbotron fluid>
+        <h1 className={StyleSheet.header}>Reclaim</h1>
+        <p className={StyleSheet.headerText}>Status</p>
         <StatusContainer />
       </Jumbotron>
       <Container className={StyleSheet.parentContainer}>
