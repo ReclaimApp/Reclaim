@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Container, Jumbotron } from 'react-bootstrap';
 import Styled from 'styled-components';
-import facebookScriptIndex from '../automation/facebook/index';
-import twitterScriptIndex from '../automation/twitter/index';
-import AutomaticFacebookReclaim from './AutoReclaim/AutomaticFacebookReclaim';
-import AutomaticTwitterReclaim from './AutoReclaim/AutomaticTwitterReclaim';
+import facebookScriptIndex from '../../automation/facebook/index';
+import twitterScriptIndex from '../../automation/twitter/index';
+import AutomaticFacebookReclaim from '../AutoReclaim/AutomaticFacebookReclaim';
+import AutomaticTwitterReclaim from '../AutoReclaim/AutomaticTwitterReclaim';
+import StatusContainer from "./StatusContainer";
 import StyleSheet from './landing.module.css';
 
 const StyledButton = Styled.button`
@@ -28,10 +29,6 @@ const StyledButton = Styled.button`
 
 const Landing = (props) => {
   const [scriptRunning, setScriptRunning] = useState(false);
-  const userFbData = useSelector((state) => state.FacebookReducer.userFbData);
-  const userTwtrData = useSelector(
-    (state) => state.TwitterReducer.userTwtrData
-  );
 
   const startFacebookScript = () => {
     setScriptRunning(true);
@@ -49,20 +46,7 @@ const Landing = (props) => {
   return (
     <div className={StyleSheet.landing}>
       <Jumbotron fluid>
-        <Container>
-          <h1 className={StyleSheet.header}>Reclaim</h1>
-          <p className={StyleSheet.headerText}>Status</p>
-          <div className={StyleSheet.statusContainer}>
-            <p className={StyleSheet.statusText}>Facebook:</p>
-            <div
-              className={userFbData ? StyleSheet.light : StyleSheet.redLight}
-            />
-            <p className={StyleSheet.statusText}>Twitter:</p>
-            <div
-              className={userTwtrData ? StyleSheet.light : StyleSheet.redLight}
-            />
-          </div>
-        </Container>
+        <StatusContainer />
       </Jumbotron>
       <Container className={StyleSheet.parentContainer}>
         <AutomaticFacebookReclaim
