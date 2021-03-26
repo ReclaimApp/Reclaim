@@ -9,7 +9,9 @@ const StatusContainer = () => {
 
   const renderTooltip = (props) => (
     <Tooltip className={StyleSheet.Tooltip} {...props}>
-      Shows red if your information is NOT stored in the 'your_data' directory inside the Documents folder of this computer
+      RED = Your data is NOT stored where Reclaim can access it.
+      <hr className={StyleSheet.StatusContainerDivider} />
+      GREEN = Your data is stored locally and ready to explore!
     </Tooltip>
   );
 
