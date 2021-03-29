@@ -9,9 +9,9 @@ const StatusContainer = () => {
 
   const renderTooltip = (props) => (
     <Tooltip className={StyleSheet.Tooltip} {...props}>
-      RED = Your data is NOT stored where Reclaim can access it.
+      RED = Your data is NOT stored where Reclaim can access it
       <hr className={StyleSheet.StatusContainerDivider} />
-      GREEN = Your data is stored locally and ready to explore!
+      GREEN = Your data is stored locally and ready to explore
     </Tooltip>
   );
 
