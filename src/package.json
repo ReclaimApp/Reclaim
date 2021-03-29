@@ -15,7 +15,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@babel/register": "^7.12.13",
-    "playwright": "^1.9.1"
+    "@babel/register": "^7.12.13"
   }
 }
