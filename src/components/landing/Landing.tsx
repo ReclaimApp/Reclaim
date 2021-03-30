@@ -31,11 +31,13 @@ const Landing = (props) => {
   const [scriptRunning, setScriptRunning] = useState(false);
 
   const startFacebookScript = () => {
-    setScriptRunning(true);
-    facebookScriptIndex();
-    return new Notification('Reclaiming', {
-      body: 'The automatic reclaim process has begun for Facebook',
-    });
+    alert("This feature is currently in development only")
+    props.history.push("/manualFacebook")
+    // setScriptRunning(true);
+    // facebookScriptIndex();
+    // return new Notification('Reclaiming', {
+    //   body: 'The automatic reclaim process has begun for Facebook',
+    // });
   };
 
   const startTwitterScript = () => {
