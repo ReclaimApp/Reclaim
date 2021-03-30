@@ -1,6 +1,7 @@
 # Reclaim [ALPHA] :construction:
+
 A hub for your personal data
-<img src='./assets/images/reclaim_landing.png' />
+<img src='./assets/images/reclaim_wide.png' />
 Reclaim is an open source desktop app for collecting and storing your online information. With Reclaim you can collect your social media data in a few clicks and explore every photo, friend, and interaction from your digital life.
 
 We just recently reached our MVP in development and are working hard to get our first full featured release out to the public!
@@ -14,6 +15,7 @@ https://www.youtube.com/watch?v=FjeUIIvfBP
 Download the latest release from the [release page](https://github.com/ReclaimApp/Reclaim/releases).
 
 ## Platform Support
+
 - [x] Windows
 - [x] Linux
 - [ ] macOS (coming soon)
@@ -41,6 +43,7 @@ https://reclaim.social/
 :email: austin@reclaim.social
 
 ## Contribute
+
 We are still very early in the construction of this codebase but would really appreciate any feedback or contribution.
 
 Below is the current app architecture
