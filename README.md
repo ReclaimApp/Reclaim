@@ -5,9 +5,9 @@ Reclaim is an open source desktop app for collecting and storing your online inf
 
 We just recently reached our MVP in development and are working hard to get our first full featured release out to the public!
 
-## DEMO
+## Demo
 
-[YouTube](https://www.youtube.com/watch?v=FjeUIIvfBPI)
+https://www.youtube.com/watch?v=FjeUIIvfBP
 
 ## Install
 
@@ -20,7 +20,7 @@ Download the latest release from the [release page](https://github.com/ReclaimAp
 
 ## Features
 
-- Reclaim Facebook data in one click using our automated scripts
+- Manual walkthrough for reclaiming Facebook data
 - Manual walkthrough for reclaiming Twitter data
 - Explore all of your Facebook data
 - Explore all of your Twitter data
@@ -28,10 +28,7 @@ Download the latest release from the [release page](https://github.com/ReclaimAp
 - Get your data back so you can be free to delete Facebook or Twitter
 - Discover the hidden information collected on you that is ONLY available through your reclaimed data
 - (Coming soon) Reclaim Twitter data in one click using our automated scripts
-
-## Demo
-
-https://www.youtube.com/watch?v=FjeUIIvfBP
+- (Coming soon) Reclaim Facebook data in one click using our automated scripts
 
 ## Join our email list to get early access to features and updates as we expand Reclaim
 
