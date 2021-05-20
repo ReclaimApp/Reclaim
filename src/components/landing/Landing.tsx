@@ -7,6 +7,7 @@ import twitterScriptIndex from '../../automation/twitter/index';
 import AutomaticFacebookReclaim from '../AutoReclaim/AutomaticFacebookReclaim';
 import AutomaticTwitterReclaim from '../AutoReclaim/AutomaticTwitterReclaim';
 import StatusContainer from "./StatusContainer";
+import example from "../../data_collection/example";
 import StyleSheet from './landing.module.css';
 
 const StyledButton = Styled.button`
